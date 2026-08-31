@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ZAYRO | Des sites qui donnent vie à votre activité{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            offwhite: '#F5F3EF',
+                            gold: '#C9A96E',
+                            darkgray: '#1A1A1A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-offwhite text-brand-black font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- NAVBAR BLOCK -->
+    {% block navbar %}
+    <header class="sticky top-0 z-50 bg-brand-offwhite/95 backdrop-blur-md border-b border-black/5 shadow-sm h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            
+            <!-- Logo (Gauche) -->
+            <a href="{% url 'store:home' %}" class="font-serif text-3xl font-bold tracking-wider text-brand-black shrink-0">
+                ZAYRO<span class="text-brand-gold">.</span>
+            </a>
+
+            <!-- Navigation Links (Centre) -->
+            <nav class="hidden md:flex flex-1 justify-center items-center space-x-8 text-sm font-medium text-black/70">
+                <a href="{% url 'store:home' %}#accueil" class="hover:text-brand-gold transition-colors">Accueil</a>
+                <a href="{% url 'store:home' %}#categories" class="hover:text-brand-gold transition-colors">Catégories</a>
+                <a href="{% url 'store:home' %}#categories" class="hover:text-brand-gold transition-colors">Modèles</a>
+                <a href="{% url 'store:home' %}#how-it-works" class="hover:text-brand-gold transition-colors">Comment ça marche ?</a>
+            </nav>
+
+            <!-- Spacer element for centering (Droite - لتوازن الجهتين) -->
+            <div class="hidden md:block shrink-0 w-[120px]"></div>
+
+        </div>
+    </header>
+    {% endblock navbar %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- FOOTER BLOCK -->
+    {% block footer %}
+    <footer class="bg-brand-black text-white/60 py-10 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-4">
+            
+            <!-- Logo & Text -->
+            <div>
+                <a href="{% url 'store:home' %}" class="font-serif text-2xl font-bold text-white tracking-wider">ZAYRO<span class="text-brand-gold">.</span></a>
+                <p class="mt-1 text-xs">Des sites qui donnent vie à votre activité.</p>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-xs text-white/50">© 2026 ZAYRO. Tous droits réservés.</p>
+
+            <!-- Social Icons -->
+            <div class="flex items-center justify-center gap-3 mt-1">
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/212777587034" target="_blank" rel="noopener noreferrer" 
+                   title="WhatsApp (+212 777 587 034)"
+                   class="w-8 h-8 rounded-full bg-white/10 hover:bg-green-500/20 text-white hover:text-green-400 flex items-center justify-center border border-white/10 hover:border-green-500/50 transition-all duration-300 transform hover:scale-110">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.758.459 3.474 1.33 4.982l-1.413 5.161 5.282-1.385a9.923 9.923 0 004.79 1.228h.005c5.505 0 9.988-4.478 9.989-9.985 0-2.667-1.037-5.176-2.922-7.062A9.913 9.913 0 0012.012 2zm0 18.291h-.004a8.26 8.26 0 01-4.213-1.162l-.302-.18-3.132.821.835-3.052-.197-.314a8.272 8.272 0 01-1.268-4.42c.001-4.562 3.714-8.273 8.28-8.273 2.21 0 4.287.862 5.85 2.426a8.225 8.225 0 012.422 5.848c-.001 4.563-3.713 8.274-8.271 8.274zm4.536-6.195c-.249-.124-1.472-.726-1.7-.809-.228-.083-.394-.124-.56.124-.166.249-.643.809-.788.975-.145.166-.29.187-.539.062a6.793 6.793 0 01-2.002-1.233 7.483 7.483 0 01-1.386-1.723c-.145-.249-.016-.384.109-.508.112-.112.249-.29.373-.435.124-.145.166-.249.249-.415.083-.166.041-.311-.021-.435-.062-.124-.56-1.349-.768-1.847-.203-.485-.409-.419-.56-.427l-.477-.008c-.166 0-.435.062-.663.311-.228.249-.871.851-.871 2.075 0 1.224.892 2.407 1.016 2.573.124.166 1.756 2.681 4.254 3.76.594.256 1.058.409 1.42.524.597.19 1.14.163 1.57.099.479-.071 1.472-.602 1.679-1.183.207-.581.207-1.079.145-1.183-.062-.104-.228-.166-.477-.29z"/>
+                    </svg>
+                </a>
+
+                <!-- Email -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zayroshop05@gmail.com" target="_blank" rel="noopener noreferrer" 
+                   title="zayroshop05@gmail.com"
+                   class="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold/20 text-white hover:text-brand-gold flex items-center justify-center border border-white/10 hover:border-brand-gold/50 transition-all duration-300 transform hover:scale-110">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/zayro_.shop/" target="_blank" rel="noopener noreferrer" 
+                   title="Instagram"
+                   class="w-8 h-8 rounded-full bg-white/10 hover:bg-pink-500/20 text-white hover:text-pink-400 flex items-center justify-center border border-white/10 hover:border-pink-500/50 transition-all duration-300 transform hover:scale-110">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+    </footer>
+    {% endblock footer %}
+</body>
+</html>

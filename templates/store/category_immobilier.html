@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAYRO — Modèles Immobilier</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons & html2pdf -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        heading: ['"Syne"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FAF9F6] text-slate-800 antialiased font-sans selection:bg-[#0F172A] selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#FAF9F6] border-b border-slate-200/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="{% url 'store:home' %}" class="font-serif text-2xl font-bold tracking-tight text-[#0F172A]">
+                    ZAYRO<span class="text-[#C59B27]">.</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#modeles" onclick="filterModels('all')" class="hover:text-[#C59B27] transition-colors">Modèles</a>
+                <a href="#packs-pricing" class="hover:text-[#C59B27] transition-colors">Nos Tarifs & Packs</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#packs-pricing" class="bg-[#0F172A] text-white text-xs font-bold px-6 py-3 rounded-full hover:bg-amber-700 transition-all shadow-sm">
+                    Commander un site
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="bg-[#0B0F19] text-white py-16 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+            <div class="max-w-2xl space-y-4">
+                <span class="text-[11px] font-extrabold text-[#C59B27] uppercase tracking-widest block">CATÉGORIE</span>
+                <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight flex items-center gap-3 text-white">
+                    <span>🏢</span> Immobilier & Agences
+                </h1>
+                <p class="text-slate-400 text-xs sm:text-sm leading-relaxed pt-1">
+                    Des sites web haut de gamme conçus pour valoriser vos biens immobiliers, séduire vos acheteurs et booster vos prises de rendez-vous en ligne.
+                </p>
+            </div>
+
+            <div class="flex-shrink-0">
+                <a href="{% url 'store:home' %}" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full backdrop-blur transition-all border border-white/10">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Retour aux catégories</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: CATALOGUE -->
+    <section id="modeles" class="max-w-7xl mx-auto py-12 px-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-6 border-b border-slate-200/80 gap-4">
+            <div>
+                <span id="section-tag" class="text-xs font-bold text-[#C59B27] uppercase tracking-widest block mb-1">CATALOGUE IMMOBILIER</span>
+                <h2 id="section-title" class="font-serif text-3xl sm:text-4xl font-bold text-[#0F172A]">Modèles disponibles (3)</h2>
+            </div>
+            
+            <div class="flex items-center gap-2 bg-slate-200/60 p-1 rounded-full text-xs font-bold">
+                <button onclick="filterModels('all')" id="btn-all" class="px-4 py-2 rounded-full bg-white text-[#0F172A] shadow-sm transition-all">Tous</button>
+                <button onclick="filterModels('vitrine')" id="btn-vitrine" class="px-4 py-2 rounded-full text-slate-600 hover:text-[#0F172A] transition-all">Vitrine Only</button>
+                <button onclick="filterModels('pro')" id="btn-pro" class="px-4 py-2 rounded-full text-slate-600 hover:text-[#0F172A] transition-all">Avec Admin Dashboard</button>
+            </div>
+        </div>
+
+        <!-- CATALOGUE GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- 1. Modern Estate (#01) -->
+            <div class="model-card model-vitrine bg-[#F5F3EF] rounded-3xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="bg-white/90 backdrop-blur p-8 text-center relative border-b border-slate-100">
+                        <span class="absolute top-4 left-4 bg-[#0F172A] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK STARTER</span>
+                        <div class="w-12 h-12 bg-[#FAF9F6] rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 text-xl group-hover:scale-110 transition-transform duration-300">
+                            🏢
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-[#0F172A]">Modern Estate <span class="text-slate-400 font-sans text-sm font-normal">#01</span></h3>
+                    </div>
+                    
+                    <div class="p-6 space-y-3">
+                        <h4 class="font-bold text-[#0F172A] text-base">Modern Estate</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            L'élégance du moderne au service de vos mandats. Une vitrine claire, rapide et pensée pour inspirer confiance et générer des contacts qualifiés.
+                        </p>
+                        <div class="pt-2">
+                            <span class="inline-block bg-slate-200/60 text-slate-700 text-[11px] font-semibold px-3 py-1 rounded-full">Site Vitrine Clean</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a href="{% url 'store:demo_modern_estate' %}" target="_blank" class="w-full bg-[#0F172A] hover:bg-amber-700 text-white font-bold text-xs py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-md">
+                        <span>Voir la démo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Minimal Loft (#02) -->
+            <div class="model-card model-vitrine bg-[#0F172A] rounded-3xl border border-amber-600/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative group transform md:-translate-y-2">
+                <div>
+                    <div class="bg-[#1E293B] p-8 text-center relative border-b border-slate-700/50">
+                        <span class="absolute top-4 left-4 bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK STARTER</span>
+                        <span class="absolute top-4 right-4 bg-amber-500/20 text-[#D97706] border border-amber-500/30 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">NOUVEAU</span>
+                        <div class="w-12 h-12 bg-[#0F172A] rounded-2xl mx-auto mb-4 flex items-center justify-center border border-slate-700 text-xl group-hover:scale-110 transition-transform duration-300">
+                            ✨
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Minimal Loft <span class="text-amber-500 font-sans text-sm font-normal">#02</span></h3>
+                    </div>
+                    
+                    <div class="p-6 space-y-3">
+                        <h4 class="font-bold text-white text-base">Minimal Loft</h4>
+                        <p class="text-slate-300 text-xs leading-relaxed">
+                            Un style Dark Premium d'exception. Visuels immersifs et esthétique architecturale pour captiver vos clients haut de gamme et valoriser vos biens de prestige.
+                        </p>
+                        <div class="pt-2">
+                            <span class="inline-block bg-slate-800 text-amber-400 border border-amber-500/20 text-[11px] font-semibold px-3 py-1 rounded-full">Site Vitrine High-End</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a href="{% url 'store:demo_minimal_loft' %}" target="_blank" class="w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                        <span>Voir la démo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Residence Plus (#03) -->
+            <div class="model-card model-pro bg-[#F5F3EF] rounded-3xl border border-slate-200/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="bg-white/90 backdrop-blur p-8 text-center relative border-b border-slate-100">
+                        <span class="absolute top-4 left-4 bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK PRO</span>
+                        <div class="w-12 h-12 bg-[#FAF9F6] rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 text-xl group-hover:scale-110 transition-transform duration-300">
+                            🏗️
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-[#0F172A]">Residence Plus <span class="text-slate-400 font-sans text-sm font-normal">#03</span></h3>
+                    </div>
+                    
+                    <div class="p-6 space-y-3">
+                        <h4 class="font-bold text-[#0F172A] text-base">Residence Plus</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed">
+                            La solution sur-mesure pour promoteurs : valorisez vos programmes neufs, capturez des leads qualifiés et permettez le téléchargement direct de vos brochures.
+                        </p>
+                        <div class="pt-2">
+                            <span class="inline-block bg-amber-100 text-amber-800 text-[11px] font-semibold px-3 py-1 rounded-full">Avec Admin Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 space-y-2.5">
+                    <a href="{% url 'store:demo_residence_plus' %}" target="_blank" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        <span>Voir la démo client</span>
+                    </a>
+
+                    <button onclick="openAdminGuideModal()" class="w-full bg-amber-50 hover:bg-amber-100 text-[#C59B27] border border-amber-300/80 font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>Télécharger le Guide Admin (PDF)</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: PRICING -->
+    <section id="packs-pricing" class="py-20 px-6 border-t border-slate-200/80 mt-12 bg-[#FAF9F6]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#C59B27] uppercase tracking-widest block mb-2">NOS OFFRES IMMOBILIER</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#0F172A]">Choisissez votre Pack Web</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-3">Choisissez votre pack et finalisez votre commande facilement en ligne.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Starter Pack -->
+                <div class="bg-[#F5F3EF] p-8 rounded-3xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold uppercase tracking-widest block mb-2">Pack Starter</span>
+                        <h3 class="font-serif font-bold text-2xl text-[#0F172A] mb-6">Site Vitrine</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="font-serif font-bold text-4xl text-[#0F172A]">999</span>
+                            <span class="text-slate-500 text-xs font-semibold">DH</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-600 font-medium mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Site Vitrine sans Dashboard Admin</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Domaine (.ma/.com) + Hébergement 1 An</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Intégration de vos contenus</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="{% url 'store:checkout_pack' pack_type='starter' %}" class="block text-center w-full bg-[#0F172A] hover:bg-amber-700 text-white font-bold text-xs py-3.5 rounded-full transition-all shadow-md">
+                        Commander ce pack
+                    </a>
+                </div>
+
+                <!-- Pro Pack -->
+                <div class="bg-[#0F172A] text-white p-8 rounded-3xl border border-amber-600/40 shadow-2xl relative transform md:-translate-y-2 flex flex-col justify-between">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C59B27] text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        Le Plus Populaire
+                    </span>
+                    <div>
+                        <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block mb-2 mt-2">Pack Pro</span>
+                        <h3 class="font-serif font-bold text-2xl text-white mb-6">Vitrine & Admin Panel</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="font-serif font-bold text-4xl text-white">2,599</span>
+                            <span class="text-slate-400 text-xs font-semibold">DH</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 font-medium mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> Tout du pack Starter</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> Tableau de bord Administration</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> Gestion des biens en autonomie</li>
+                        </ul>
+                    </div>
+
+                    <a href="{% url 'store:checkout_pack' pack_type='pro' %}" class="block text-center w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3.5 rounded-full transition-all shadow-lg">
+                        Commander ce pack
+                    </a>
+                </div>
+
+                <!-- Elite Pack -->
+                <div class="bg-[#F5F3EF] p-8 rounded-3xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold uppercase tracking-widest block mb-2">Pack Elite</span>
+                        <h3 class="font-serif font-bold text-2xl text-[#0F172A] mb-2">Sur-Mesure</h3>
+                        <p class="font-serif font-bold text-xl text-[#0F172A] mb-8">Sur Devis</p>
+                        <ul class="space-y-3 text-xs text-slate-600 font-medium mb-8">
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i> Design 100% sur-mesure</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i> Fonctionnalités complexes</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/212777587034?text=Bonjour%20ZAYRO,%20je%20souhaite%20discuter%20d'un%20projet%20Sur-Mesure%20(Pack%20Elite)." target="_blank" class="block text-center w-full bg-[#0F172A] hover:bg-amber-700 text-white font-bold text-xs py-3.5 rounded-full transition-all shadow-md">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN DEMO GUIDE MODAL UI -->
+    <div id="admin-guide-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[2rem] max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100">
+            <button onclick="closeAdminGuideModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 p-1.5 rounded-full transition-all">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 bg-amber-100/70 text-[#C59B27] rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <i data-lucide="file-text" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-[#0F172A]">Guide Espace Admin</h3>
+                <p class="text-xs text-slate-500 mt-1">Explication complète du fonctionnement du Dashboard Admin — ZAYRO</p>
+            </div>
+
+            <div class="bg-[#FAF9F6] rounded-2xl p-5 mb-4 border border-slate-200 space-y-3.5 text-xs text-slate-600">
+                <p class="font-bold text-[#0F172A] flex items-center gap-1.5 text-sm">
+                    <span>💡</span> Ce que vous apprendrez dans ce guide :
+                </p>
+                <ul class="space-y-3 pl-1">
+                    <li class="flex items-start gap-2.5">
+                        <span class="text-emerald-600 font-bold">✓</span>
+                        <span><b>1. Gestion des biens :</b> Présentation, modification et ajout des annonces.</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <span class="text-emerald-600 font-bold">✓</span>
+                        <span><b>2. Suivi et leads :</b> Demandes de visite et contacts clients en temps réel.</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <span class="text-emerald-600 font-bold">✓</span>
+                        <span><b>3. Support :</b> Assistance technique ZAYRO directe.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Option 1: Télécharger directement le PDF généré static (Fichier Python) -->
+            <a href="{% static 'store/pdf/Guide_Utilisation_Admin_Immobilier.pdf' %}" download target="_blank" class="w-full mt-4 bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-4 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Télécharger le Guide Admin (PDF)</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER WEB -->
+    <footer class="bg-[#0F172A] text-slate-400 py-12 border-t border-slate-800 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <span class="font-serif font-bold text-white text-xl tracking-tight">ZAYRO<span class="text-[#C59B27]">.</span></span>
+            <p class="text-xs text-center text-slate-400">© 2026 ZAYRO — Plateforme de Modèles Web Immobilier.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        lucide.createIcons();
+
+        function openAdminGuideModal() {
+            document.getElementById('admin-guide-modal').classList.remove('hidden');
+        }
+
+        function closeAdminGuideModal() {
+            document.getElementById('admin-guide-modal').classList.add('hidden');
+        }
+
+        function filterModels(type) {
+            const vitrineCards = document.querySelectorAll('.model-vitrine');
+            const proCards = document.querySelectorAll('.model-pro');
+            const title = document.getElementById('section-title');
+            const tag = document.getElementById('section-tag');
+
+            document.querySelectorAll('#btn-all, #btn-vitrine, #btn-pro').forEach(btn => {
+                btn.className = "px-4 py-2 rounded-full text-slate-600 hover:text-[#0F172A] transition-all";
+            });
+
+            if(type === 'vitrine') {
+                vitrineCards.forEach(c => c.classList.remove('hidden'));
+                proCards.forEach(c => c.classList.add('hidden'));
+                document.getElementById('btn-vitrine').className = "px-4 py-2 rounded-full bg-white text-[#0F172A] shadow-sm transition-all";
+                title.innerText = "Modèles Vitrine (Starter)";
+                tag.innerText = "SEULEMENT SITES VITRINE";
+            } else if(type === 'pro') {
+                vitrineCards.forEach(c => c.classList.add('hidden'));
+                proCards.forEach(c => c.classList.remove('hidden'));
+                document.getElementById('btn-pro').className = "px-4 py-2 rounded-full bg-[#0F172A] text-white shadow-sm transition-all";
+                title.innerText = "Modèles Pro (Avec Admin Panel)";
+                tag.innerText = "SEULEMENT AVEC ADMIN DASHBOARD";
+            } else {
+                vitrineCards.forEach(c => c.classList.remove('hidden'));
+                proCards.forEach(c => c.classList.remove('hidden'));
+                document.getElementById('btn-all').className = "px-4 py-2 rounded-full bg-white text-[#0F172A] shadow-sm transition-all";
+                title.innerText = "Modèles disponibles (3)";
+                tag.innerText = "CATALOGUE IMMOBILIER";
+            }
+        }
+    </script>
+</body>
+</html>

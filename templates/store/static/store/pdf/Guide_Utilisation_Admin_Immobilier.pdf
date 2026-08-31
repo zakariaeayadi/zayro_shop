@@ -1,0 +1,145 @@
+function genererPDFImmobilier() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Palette de couleurs ZAYRO
+    const goldColor = [234, 179, 8];
+    const darkBg = [15, 23, 42];
+    const textColor = [51, 65, 85];
+
+    // Header Dark
+    doc.setFillColor(...darkBg);
+    doc.rect(0, 0, 210, 35, 'F');
+
+    doc.setTextColor(...goldColor);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("ZAYRO .", 14, 18);
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("Catégorie : Immobilier & Agences", 125, 15);
+    doc.text("GUIDE D'UTILISATION DASHBOARD ADMIN", 14, 28);
+
+    // Ligne Séparatrice
+    doc.setDrawColor(...goldColor);
+    doc.setLineWidth(0.8);
+    doc.line(14, 38, 196, 38);
+
+    let y = 45;
+
+    // Section 1 : Présentation
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("1. PRÉSENTATION DU DASHBOARD ADMIN", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    const introText = "Ce panneau d'administration vous permet de gérer entièrement le catalogue immobilier : ajouter de nouveaux biens (Villas, Appartements), gérer la disponibilité, ajouter des visuels et joindre des brochures PDF destinées aux clients.";
+    const splitIntro = doc.splitTextToSize(introText, 180);
+    doc.text(splitIntro, 14, y);
+    y += (splitIntro.length * 4) + 4;
+
+    // --- ENCADRÉ ACCÈS ADMIN ---
+    doc.setFillColor(245, 247, 250);
+    doc.setDrawColor(...goldColor);
+    doc.setLineWidth(0.6);
+    doc.roundedRect(14, y, 182, 15, 2, 2, 'FD');
+
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(8.5);
+    doc.setFont("helvetica", "bold");
+    doc.text("IDENTIFIANTS D'ACCÈS ADMIN (DÉFAUT / DÉMO) :", 18, y + 5.5);
+
+    doc.setTextColor(217, 119, 6);
+    doc.setFont("helvetica", "bold");
+    doc.text("Nom d'utilisateur :", 18, y + 11);
+    doc.setTextColor(...textColor);
+    doc.setFont("helvetica", "normal");
+    doc.text("admin", 50, y + 11);
+
+    doc.setTextColor(217, 119, 6);
+    doc.setFont("helvetica", "bold");
+    doc.text("Mot de passe :", 95, y + 11);
+    doc.setTextColor(...textColor);
+    doc.setFont("helvetica", "normal");
+    doc.text("admin", 120, y + 11);
+
+    y += 20;
+
+    // Section 2 : Guide des champs
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("2. GUIDE DES CHAMPS DU FORMULAIRE", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(7.5);
+    doc.setFont("helvetica", "normal");
+
+    const fields = [
+        "• Nom du Bien / Intitulé : Titre de l'annonce (ex: Villa Deluxe Oasis).",
+        "• Prix (DH / MDH) : Prix du bien immobilier.",
+        "• Ville / Emplacement : Localisation du bien (ex: Rabat, Casablanca).",
+        "• Statut / Tag : Disponibilité (ex: LIVRABLE IMMÉDIAT).",
+        "• Finition / Type : Niveau de finition (ex: Haute Finition).",
+        "• Chambres / Pièces : Nombre de pièces (ex: 4 Ch.).",
+        "• Surface / Dimensions : Superficie en m² (ex: 350 m²).",
+        "• Description Complète : Caractéristiques (piscine, vue sur mer, etc.).",
+        "• Brochure PDF (Optionnel) : Fichier PDF explicatif du bien.",
+        "• Photo Principale & Secondaires : Galerie d'images du bien."
+    ];
+
+    fields.forEach(f => {
+        doc.text(f, 14, y);
+        y += 4.2;
+    });
+
+    y += 3;
+
+    // Section 3 : Étapes pour ajouter
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("3. ÉTAPES POUR AJOUTER UNE ENTRÉE", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(7.5);
+    doc.setFont("helvetica", "normal");
+
+    const steps = [
+        "1. Remplissez tous les champs obligatoires du formulaire.",
+        "2. Ajoutez un document PDF téléchargeable (optionnel).",
+        "3. Glissez-déposez la photo principale et les images secondaires.",
+        "4. Cliquez sur le bouton '+ Enregistrer' pour valider et publier dans le catalogue."
+    ];
+
+    steps.forEach(s => {
+        doc.text(s, 14, y);
+        y += 4.2;
+    });
+
+    // Footer Fixe
+    doc.setFillColor(...darkBg);
+    doc.rect(0, 252, 210, 45, 'F');
+
+    doc.setTextColor(...goldColor);
+    doc.setFontSize(9.5);
+    doc.setFont("helvetica", "bold");
+    doc.text("SUPPORT TECHNIQUE & ASSISTANCE ZAYRO", 14, 263);
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    doc.text("Pour toute assistance concernant la gestion de votre plateforme ZAYRO :", 14, 270);
+    doc.text("• Téléphone / WhatsApp : +212 777 587 034", 14, 276);
+    doc.text("• Email Support : zayroshop05@gmail.com", 14, 282);
+
+    doc.save("Guide_Utilisation_Admin_Immobilier.pdf");
+}

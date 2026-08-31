@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Loft #02 — Démo Site Vitrine Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Syne"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0D0D0E] text-zinc-100 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+    <div class="bg-amber-500 text-black text-xs font-bold py-2.5 px-4 text-center flex flex-wrap items-center justify-between gap-3 sticky top-0 z-50">
+        <div class="flex items-center gap-2 mx-auto sm:mx-0">
+            <span class="bg-black text-amber-400 text-[10px] uppercase px-2 py-0.5 rounded font-mono">DÉMO EN DIRECT</span>
+            <span>Modèle #02 — Site Vitrine High-End "Minimal Loft"</span>
+        </div>
+        
+        <div class="flex items-center gap-2 mx-auto sm:mx-0">
+            <a href="{% url 'store:category_immobilier' %}#packs-pricing" class="inline-flex items-center gap-1.5 bg-black text-amber-400 hover:bg-zinc-900 text-[11px] font-bold px-3 py-1 rounded-full transition-all shadow">
+                <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                <span>Commander ce modèle</span>
+            </a>
+
+            <a href="{% url 'store:category_immobilier' %}" class="inline-flex items-center gap-1 bg-black/20 text-black hover:bg-black hover:text-white text-[11px] font-semibold px-3 py-1 rounded-full transition-all border border-black/20">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                <span>Retour au Catalogue</span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="border-b border-zinc-800/80 bg-[#0D0D0E]/90 backdrop-blur-md sticky top-[41px] z-40">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-heading text-2xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                MINIMAL<span class="text-amber-500">LOFT.</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                <a href="#biens" class="hover:text-amber-400 transition-colors">Nos Biens</a>
+                <a href="#a-propos" class="hover:text-amber-400 transition-colors">L'Agence</a>
+                <a href="#avis" class="hover:text-amber-400 transition-colors">Avis</a>
+                <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+            </div>
+
+            <a href="https://wa.me/212600000000" target="_blank" class="bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold px-5 py-3 rounded-full transition-all flex items-center gap-2 shadow-lg shadow-amber-500/10">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Discuter sur WhatsApp</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden pt-12 pb-20">
+        <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0E] via-[#0D0D0E]/80 to-transparent z-0"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6">
+            <span class="inline-block bg-zinc-800/80 text-amber-400 border border-zinc-700/60 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest backdrop-blur-sm">
+                Architecture & Immobilier d'Exception
+            </span>
+            
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+                L'Art de Vivre <br> Dans Des Espaces <span class="text-amber-400 italic">Singuliers.</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-zinc-400 text-sm sm:text-base leading-relaxed">
+                Découvrez une sélection exclusive de lofts, penthouses et résidences d'architecte conçus pour ceux qui recherchent le design, l'espace et le prestige.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#biens" class="w-full sm:w-auto bg-white hover:bg-zinc-200 text-black font-bold text-xs px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
+                    <span>Explorer la sélection</span>
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-zinc-900 border border-zinc-700 hover:border-amber-500 text-zinc-200 font-bold text-xs px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
+                    <span>Prendre rendez-vous</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-zinc-800 bg-zinc-900/30 py-8 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <p class="font-heading text-3xl font-bold text-white">100%</p>
+                <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Biens Exclusifs</p>
+            </div>
+            <div>
+                <p class="font-heading text-3xl font-bold text-amber-400">12M+</p>
+                <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Volume de Transactions</p>
+            </div>
+            <div>
+                <p class="font-heading text-3xl font-bold text-white">48h</p>
+                <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Délai Moyen Visite</p>
+            </div>
+            <div>
+                <p class="font-heading text-3xl font-bold text-white">4.9 ★</p>
+                <p class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Satisfaction Client</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="biens" class="max-w-7xl mx-auto py-24 px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block mb-2">PORTFOLIO</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white">Dernières Opportunités</h2>
+            </div>
+            <p class="text-zinc-400 text-xs sm:text-sm max-w-md">
+                Chaque propriété est rigoureusement sélectionnée pour ses qualités architecturales et son emplacement privilégié.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-zinc-900/60 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800" alt="Loft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-500/30">À Vendre</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-white">The Industrial Loft</h3>
+                            <p class="text-zinc-400 text-xs flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-500"></i> Casablanca — Gauthier</p>
+                        </div>
+                        <span class="font-heading font-bold text-lg text-amber-400">3,200,000 DH</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-zinc-800 text-xs text-zinc-400">
+                        <span class="flex items-center gap-1"><i data-lucide="maximize" class="w-3.5 h-3.5"></i> 180 m²</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bed" class="w-3.5 h-3.5"></i> 2 Ch.</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bath" class="w-3.5 h-3.5"></i> 2 SdB</span>
+                    </div>
+
+                    <a href="https://wa.me/212600000000?text=Je%20souhaite%20des%20infos%20sur%20The%20Industrial%20Loft" target="_blank" class="block text-center w-full bg-zinc-800 hover:bg-amber-500 hover:text-black text-white font-bold text-xs py-3 rounded-2xl transition-all mt-4">
+                        Demander une visite
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/60 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800" alt="Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-500/30">Exclusivité</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-white">Sky Penthouse</h3>
+                            <p class="text-zinc-400 text-xs flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-500"></i> Rabat — Hivernage</p>
+                        </div>
+                        <span class="font-heading font-bold text-lg text-amber-400">4,800,000 DH</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-zinc-800 text-xs text-zinc-400">
+                        <span class="flex items-center gap-1"><i data-lucide="maximize" class="w-3.5 h-3.5"></i> 240 m²</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bed" class="w-3.5 h-3.5"></i> 3 Ch.</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bath" class="w-3.5 h-3.5"></i> 3 SdB</span>
+                    </div>
+
+                    <a href="https://wa.me/212600000000?text=Je%20souhaite%20des%20infos%20sur%20Sky%20Penthouse" target="_blank" class="block text-center w-full bg-zinc-800 hover:bg-amber-500 hover:text-black text-white font-bold text-xs py-3 rounded-2xl transition-all mt-4">
+                        Demander une visite
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/60 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all group">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800" alt="Villa Minimalist" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-500/30">Nouveau</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-white">Glass Villa</h3>
+                            <p class="text-zinc-400 text-xs flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-500"></i> Marrakech — Route de l'Ourika</p>
+                        </div>
+                        <span class="font-heading font-bold text-lg text-amber-400">6,500,000 DH</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-zinc-800 text-xs text-zinc-400">
+                        <span class="flex items-center gap-1"><i data-lucide="maximize" class="w-3.5 h-3.5"></i> 450 m²</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bed" class="w-3.5 h-3.5"></i> 4 Ch.</span>
+                        <span class="flex items-center gap-1"><i data-lucide="bath" class="w-3.5 h-3.5"></i> 4 SdB</span>
+                    </div>
+
+                    <a href="https://wa.me/212600000000?text=Je%20souhaite%20des%20infos%20sur%20Glass%20Villa" target="_blank" class="block text-center w-full bg-zinc-800 hover:bg-amber-500 hover:text-black text-white font-bold text-xs py-3 rounded-2xl transition-all mt-4">
+                        Demander une visite
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="a-propos" class="bg-zinc-900/30 py-24 border-y border-zinc-800 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">NOTRE PHILOSOPHIE</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                    Plus qu’une agence, une signature.
+                </h2>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Nous croyons que l'endroit où vous vivez façonne votre façon de penser et de créer. C'est pourquoi nous sommes spécialisés dans les biens d'exception qui allient lumière naturelle, matériaux nobles et lignes architecturales épurées.
+                </p>
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center gap-3 text-xs text-zinc-300">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i>
+                        <span>Accompagnement juridique et financier sur-mesure</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-zinc-300">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i>
+                        <span>Visites privées en toute confidentialité</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800" alt="Interior Design" class="w-full h-[400px] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="max-w-5xl mx-auto py-24 px-6 text-center">
+        <span class="text-amber-500 text-xs font-bold uppercase tracking-widest block mb-2">RESTONS EN CONTACT</span>
+        <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white mb-6">Un projet d'achat ou de vente ?</h2>
+        <p class="text-zinc-400 text-sm max-w-xl mx-auto mb-10">
+            Contactez notre équipe de conseillers pour bénéficier d'une estimation gratuite de votre bien ou planifier une visite.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://wa.me/212600000000" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Contacter sur WhatsApp</span>
+            </a>
+            <a href="tel:+212600000000" class="w-full sm:w-auto bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <span>Appeler le +212 6 00 00 00 00</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 py-10 px-6 text-center text-zinc-500 text-xs">
+        <p>© 2026 Minimal Loft. Modèle de démonstration par ZAYRO.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

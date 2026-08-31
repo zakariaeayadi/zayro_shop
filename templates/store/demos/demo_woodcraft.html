@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Démo | Wood & Steel - Mobilier Industriel & Artisanal{% endblock %}
+
+{% block navbar %}
+<!-- Khaoui bash n-hiydo l-navbar l-3adiya w n-dzido Top Bar dyal DEMO MODE -->
+{% endblock %}
+
+{% block footer %}
+<!-- Khaoui bash n-hiydo l-footer l-3adi dyal ZAYRO f had l-page -->
+{% endblock footer %}
+
+{% block content %}
+
+<!-- 1. TOP BAR DEMO MODE (FIXED TOP) -->
+<div class="bg-[#0f172a] text-white px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs font-sans border-b border-white/10 sticky top-0 z-[100] w-full">
+    <div class="flex items-center gap-3">
+        <span class="bg-[#d97706] text-black font-extrabold uppercase px-2.5 py-0.5 rounded text-[10px] tracking-wider">
+            DEMO MODE
+        </span>
+        <span class="text-white/80 font-medium hidden sm:inline">
+            Modèle: <strong class="text-white">Wood & Steel / Artisans #02</strong>
+        </span>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <!-- Lien Retour -->
+        <a href="{% url 'store:category_mobilier' %}" class="text-white/70 hover:text-white transition-colors flex items-center gap-1 font-medium">
+            <span>←</span> Retour
+        </a>
+
+        <!-- Bouton Commander ce site -->
+        <a href="{% url 'store:category_mobilier' %}#packs-pricing" class="bg-[#d97706] hover:bg-amber-600 text-white font-bold px-4 py-1.5 rounded-md transition-all shadow-sm flex items-center gap-1.5 text-xs">
+            <span>🛒</span> Commander ce site
+        </a>
+    </div>
+</div>
+
+<!-- 2. NAVBAR DYAL LA DÉMO (WOOD & STEEL) -->
+<nav class="bg-[#1c1917] text-white border-b border-stone-800 sticky top-[41px] z-40">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="font-serif text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            <span>🪵</span> WOOD & STEEL<span class="text-[#d97706]">.</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-300">
+            <a href="#accueil" class="hover:text-[#d97706] transition-colors">Accueil</a>
+            <a href="#creations" class="hover:text-[#d97706] transition-colors">Nos Créations</a>
+            <a href="#materiaux" class="hover:text-[#d97706] transition-colors">Matériaux</a>
+            <a href="#sur-mesure" class="hover:text-[#d97706] transition-colors">Projet Sur-Mesure</a>
+        </div>
+
+        <!-- LES ICÔNES DE CONTACT (INSTAGRAM, EMAIL, WHATSAPP) -->
+        <div class="flex items-center gap-3">
+            <!-- Email Icon -->
+            <a href="mailto:contact@woodsteel.ma" title="Envoyer un Email" class="w-9 h-9 bg-stone-900 border border-stone-800 hover:border-[#d97706] text-stone-300 hover:text-[#d97706] rounded-full flex items-center justify-center transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </a>
+
+            <!-- Instagram Icon -->
+            <a href="https://instagram.com" target="_blank" title="Suivez-nous sur Instagram" class="w-9 h-9 bg-stone-900 border border-stone-800 hover:border-[#d97706] text-stone-300 hover:text-[#d97706] rounded-full flex items-center justify-center transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+
+            <!-- WhatsApp Direct Button -->
+            <a href="https://wa.me/212600000000" target="_blank" class="bg-[#d97706] hover:bg-amber-600 text-stone-950 font-bold text-xs px-4 py-2.5 rounded-full transition-all shadow-md flex items-center gap-1.5">
+                <span>💬</span> WhatsApp
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- 3. HERO SECTION (INDUSTRIAL & DARK WOOD) -->
+<section id="accueil" class="relative bg-stone-950 text-white py-32 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1600&auto=format&fit=crop');"></div>
+    <div class="relative max-w-7xl mx-auto text-center flex flex-col items-center">
+        <span class="bg-[#d97706]/20 text-[#d97706] border border-[#d97706]/40 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            🛠️ Fabrication Artisanale & Design Industriel
+        </span>
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold max-w-4xl leading-tight">
+            L'Alliance Du Bois Massif Et Du Métal Brut.
+        </h1>
+        <p class="mt-6 text-stone-400 max-w-2xl text-base sm:text-lg leading-relaxed">
+            Nous façonnons des tables à manger, salons marocains modernes et mobilier sur-mesure faits pour durer toute une vie.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="#creations" class="bg-[#d97706] hover:bg-amber-600 text-stone-950 font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg">
+                Voir Nos Réalisations
+            </a>
+            <a href="#sur-mesure" class="bg-stone-900 hover:bg-stone-800 text-white font-semibold px-8 py-3.5 rounded-full text-sm backdrop-blur-md transition-all border border-stone-800">
+                Demander un Devis Sur-Mesure
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 4. GALERIE DE CRÉATIONS -->
+<section id="creations" class="py-20 bg-stone-900 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold text-[#d97706] uppercase tracking-widest block mb-2">GALERIE DE RÉALISATIONS</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold">Nos Pièces Maîtresses</h2>
+            <p class="text-stone-400 text-sm mt-3">Chaque meuble est unique et fabriqué dans notre atelier au Maroc.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="bg-stone-950 rounded-2xl overflow-hidden shadow-lg border border-stone-800 group">
+                <div class="h-64 bg-stone-800 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=800&auto=format&fit=crop" alt="Table Bois Massif" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-[#d97706] text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Sur-Mesure</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-white">Tables Bois Massif & Époxy</h3>
+                    <p class="text-stone-400 text-xs mt-2 leading-relaxed">Tables en chêne ou noyer massif avec pied en acier noir thermolaqué.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-800">
+                        <span class="text-xs font-bold text-stone-500">À partir de <strong class="text-[#d97706] text-sm">4 900 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20veux%20en%20savoir%20plus%20sur%20les%20Tables%20en%20Bois%20Massif" target="_blank" class="text-xs font-bold text-white hover:text-[#d97706] transition-colors">Demander ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-stone-950 rounded-2xl overflow-hidden shadow-lg border border-stone-800 group">
+                <div class="h-64 bg-stone-800 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Salon Industriel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-white">Salons Modernes & Métal</h3>
+                    <p class="text-stone-400 text-xs mt-2 leading-relaxed">Structures en acier noir, cuir vieilli et bois brut pour un style loft authentique.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-800">
+                        <span class="text-xs font-bold text-stone-500">À partir de <strong class="text-[#d97706] text-sm">6 500 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20veux%20en%20savoir%20plus%20sur%20les%20Salons%20Industriels" target="_blank" class="text-xs font-bold text-white hover:text-[#d97706] transition-colors">Demander ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-stone-950 rounded-2xl overflow-hidden shadow-lg border border-stone-800 group">
+                <div class="h-64 bg-stone-800 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=800&auto=format&fit=crop" alt="Rangements & Meubles TV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-white">Meubles TV & Buffets</h3>
+                    <p class="text-stone-400 text-xs mt-2 leading-relaxed">Rangements robustes alliant étagères en bois de Frêne et profilés d'acier.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-800">
+                        <span class="text-xs font-bold text-stone-500">À partir de <strong class="text-[#d97706] text-sm">3 200 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20veux%20en%20savoir%20plus%20sur%20les%20Meubles%20TV" target="_blank" class="text-xs font-bold text-white hover:text-[#d97706] transition-colors">Demander ➔</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. MATÉRIAUX & ATELIER -->
+<section id="materiaux" class="py-20 bg-stone-950 text-white border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-xs font-bold text-[#d97706] uppercase tracking-widest block mb-2">QUALITÉ PREMIUM</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">Des Matériaux Nobles Sélectionnés Avec Soin</h2>
+                <p class="text-stone-400 text-sm mt-4 leading-relaxed">
+                    Nous refusons le contreplaqué léger. Toutes nos pièces sont travaillées à la main avec du véritable bois massif (Chêne, Noyer, Frêne) et de l'acier traité contre la rouille.
+                </p>
+                
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="bg-[#d97706]/20 text-[#d97706] p-3 rounded-xl font-bold">01</span>
+                        <div>
+                            <h4 class="font-bold text-sm">Bois Massif Séché au Four</h4>
+                            <p class="text-xs text-stone-400 mt-0.5">Évite les fissures et la déformation avec l'humidité.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-[#d97706]/20 text-[#d97706] p-3 rounded-xl font-bold">02</span>
+                        <div>
+                            <h4 class="font-bold text-sm">Acier Brut & Peinture Époxy</h4>
+                            <p class="text-xs text-stone-400 mt-0.5">Finition mate ultra résistante aux rayures et aux chocs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD ATELIER -->
+            <div class="bg-stone-900 border border-stone-800 p-8 rounded-3xl relative shadow-2xl">
+                <div class="absolute -top-3 -right-3 bg-[#d97706] text-black font-extrabold text-[10px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                    ATELIER MAROC
+                </div>
+                
+                <div class="overflow-hidden rounded-2xl mb-6 border border-stone-800">
+                    <img src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?q=80&w=1000&auto=format&fit=crop" alt="Artisan Menuisier Woodwork" class="w-full h-72 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+
+                <h3 class="font-serif text-xl font-bold text-white flex items-center gap-2">
+                    <span>🔨</span> L'Artisanat À L'État Brut
+                </h3>
+                <p class="text-xs text-stone-400 mt-2.5 leading-relaxed">
+                    Chaque morceau de bois est sélectionné à la main dans notre atelier. Venez découvrir la texture, choisir vos essences de bois préférées et suivre la fabrication de votre projet étape par étape.
+                </p>
+                <div class="mt-4 pt-4 border-t border-stone-800/80 flex items-center justify-between text-xs">
+                    <span class="text-stone-500 flex items-center gap-1.5 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Sur Rendez-vous
+                    </span>
+                    <a href="https://wa.me/212600000000?text=Je%20souhaite%20visiter%20l'atelier" target="_blank" class="text-[#d97706] font-bold hover:underline">
+                        Réserver une visite ➔
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. SECTION SUR-MESURE / FORMULAIRE -->
+<section id="sur-mesure" class="py-20 bg-stone-900 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <span class="text-xs font-bold text-[#d97706] uppercase tracking-widest block mb-2">VOTRE PROJET SUR-MESURE</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold">Vous Avez Une Idée Ou Un Plan 3D ?</h2>
+        <p class="text-stone-400 text-sm mt-3">Envoyez-nous vos dimensions, nous calculons le devis en moins de 24h.</p>
+
+        <form class="mt-10 bg-stone-950 p-8 rounded-3xl border border-stone-800 text-left space-y-4 text-xs max-w-xl mx-auto shadow-2xl" onsubmit="event.preventDefault(); alert('Votre demande a été envoyée ! Nos artisans vous contacteront.');">
+            <div>
+                <label class="block text-stone-300 font-semibold mb-1">Nom complet :</label>
+                <input type="text" required placeholder="Ex: Youssef Mansouri" class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#d97706]">
+            </div>
+            <div>
+                <label class="block text-stone-300 font-semibold mb-1">Numéro WhatsApp :</label>
+                <input type="tel" required placeholder="06 00 00 00 00" class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#d97706]">
+            </div>
+            <div>
+                <label class="block text-stone-300 font-semibold mb-1">Détails du projet (dimensions, type de bois...) :</label>
+                <textarea rows="3" placeholder="Ex: Table à manger 200x90cm en bois de chêne avec pied en X noir..." class="w-full bg-stone-900 border border-stone-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#d97706]"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-[#d97706] hover:bg-amber-600 text-stone-950 font-extrabold py-3.5 rounded-xl transition-all shadow-lg text-sm">
+                Envoyer Ma Demande De Devis
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- 7. FOOTER -->
+<footer class="bg-stone-950 text-stone-500 py-10 border-t border-stone-800 text-center text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p>© 2026 WOOD & STEEL - Artisanat & Mobilier Industriel. Conçu par <strong>ZAYRO</strong>.</p>
+        
+        <div class="flex items-center gap-4">
+            <a href="mailto:contact@woodsteel.ma" class="hover:text-[#d97706] transition-colors flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                contact@woodsteel.ma
+            </a>
+            <a href="https://instagram.com" target="_blank" class="hover:text-[#d97706] transition-colors flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+            </a>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

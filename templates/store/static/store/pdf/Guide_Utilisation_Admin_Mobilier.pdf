@@ -1,0 +1,143 @@
+// Fonction pour générer le PDF MOBILIER & DÉCORATION (100% Propre & Sans bug d'accents)
+function genererPDFMobilier() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const goldColor = [234, 179, 8];
+    const darkBg = [15, 23, 42];
+    const textColor = [51, 65, 85];
+
+    // Header Dark ZAYRO
+    doc.setFillColor(...darkBg);
+    doc.rect(0, 0, 210, 35, 'F');
+
+    doc.setTextColor(...goldColor);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("ZAYRO .", 14, 18);
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("Categorie : Mobilier et Decoration", 125, 15);
+    doc.text("GUIDE D'UTILISATION DASHBOARD ADMIN", 14, 28);
+
+    doc.setDrawColor(...goldColor);
+    doc.setLineWidth(0.8);
+    doc.line(14, 38, 196, 38);
+
+    let y = 46;
+
+    // Section 1 : Présentation
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("1. PRESENTATION DU DASHBOARD ADMIN", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    const introText = "Ce panneau d'administration vous permet de gerer entierement le catalogue Mobilier & Decoration : ajouter de nouveaux articles (Canapes, Tables, Luminaires, Deco), configurer les prix, appliquer des promotions et publier les visuels de vos produits.";
+    const splitIntro = doc.splitTextToSize(introText, 182);
+    doc.text(splitIntro, 14, y);
+    y += (splitIntro.length * 4) + 5;
+
+    // Encadré Accès
+    doc.setFillColor(245, 247, 250);
+    doc.setDrawColor(...goldColor);
+    doc.setLineWidth(0.6);
+    doc.roundedRect(14, y, 182, 16, 2, 2, 'FD');
+
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(8.5);
+    doc.setFont("helvetica", "bold");
+    doc.text("IDENTIFIANTS D'ACCES ADMIN (DEFAUT / DEMO) :", 18, y + 5.5);
+
+    doc.setTextColor(217, 119, 6);
+    doc.setFont("helvetica", "bold");
+    doc.text("Nom d'utilisateur :", 18, y + 11.5);
+    doc.setTextColor(...textColor);
+    doc.setFont("helvetica", "normal");
+    doc.text("admin", 50, y + 11.5);
+
+    doc.setTextColor(217, 119, 6);
+    doc.setFont("helvetica", "bold");
+    doc.text("Mot de passe :", 95, y + 11.5);
+    doc.setTextColor(...textColor);
+    doc.setFont("helvetica", "normal");
+    doc.text("123456", 120, y + 11.5);
+
+    y += 23;
+
+    // Section 2 : Guide des champs Mobilier
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("2. GUIDE DES CHAMPS DU FORMULAIRE", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(7.5);
+    doc.setFont("helvetica", "normal");
+
+    const fields = [
+        "- Nom du Produit / Meuble * : Intitule exact de l'article (ex: Canape Velours Royal Gold).",
+        "- Prix Actuel (DH) * : Prix de vente effectif affiche sur la boutique.",
+        "- Prix Ancien (Barre) : Prix d'origine barre pour afficher une reduction (ex: 6000 DH).",
+        "- Categorie : Type de meuble (ex: CANAPES & SALONS, TABLES, LUMINAIRES...).",
+        "- Badge Tag (Promo/Nouveau) : Etiquette d'accroche (ex: PROMO -20% ou EXCLUSIF).",
+        "- Photo Principale : Glissez-deposez la photo principale ou parcourez vos fichiers.",
+        "- Option Alternative (Lien URL Image) : Import rapide par URL si besoin.",
+        "- Description du Produit : Matieres, dimensions, caracteristiques et conseils d'entretien."
+    ];
+
+    fields.forEach(f => {
+        doc.text(f, 14, y);
+        y += 4.3;
+    });
+
+    y += 4;
+
+    // Section 3 : Étapes
+    doc.setTextColor(...darkBg);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    doc.text("3. ETAPES POUR AJOUTER UN MEUBLE", 14, y);
+    y += 5;
+
+    doc.setTextColor(...textColor);
+    doc.setFontSize(7.5);
+    doc.setFont("helvetica", "normal");
+
+    const steps = [
+        "1. Saisissez le nom, le prix actuel et choisissez la categorie adaptee.",
+        "2. Saisissez un prix ancien et un Badge Tag si le produit est en promotion.",
+        "3. Glissez-deposez la photo du meuble ou collez un lien d'image direct.",
+        "4. Redigez une description claire (essence de bois, type de tissu, dimensions).",
+        "5. Cliquez sur 'Ajouter au Catalogue' pour publier directement l'article."
+    ];
+
+    steps.forEach(s => {
+        doc.text(s, 14, y);
+        y += 4.3;
+    });
+
+    // Footer ZAYRO
+    doc.setFillColor(...darkBg);
+    doc.rect(0, 252, 210, 45, 'F');
+
+    doc.setTextColor(...goldColor);
+    doc.setFontSize(9.5);
+    doc.setFont("helvetica", "bold");
+    doc.text("SUPPORT TECHNIQUE & ASSISTANCE ZAYRO", 14, 263);
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    doc.text("Pour toute assistance concernant la gestion de votre plateforme ZAYRO :", 14, 270);
+    doc.text("- Telephone / WhatsApp : +212 777 587 034", 14, 276);
+    doc.text("- Email Support : zayroshop05@gmail.com", 14, 282);
+
+    doc.save("Guide_Utilisation_Admin_Mobilier.pdf");
+}

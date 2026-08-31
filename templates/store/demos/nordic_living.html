@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Démo | Maison Élégante - Showroom & Mobilier{% endblock %}
+
+{% block navbar %}
+<!-- Khaoui bash n-hiydo l-navbar l-3adiya w n-dzido Top Bar dyal DEMO MODE -->
+{% endblock %}
+
+{% block footer %}
+<!-- Khaoui bash n-hiydo l-footer l-3adi dyal ZAYRO f had l-page -->
+{% endblock footer %}
+
+{% block content %}
+
+<!-- 1. TOP BAR DEMO MODE (FIXED TOP) -->
+<div class="bg-[#0f172a] text-white px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs font-sans border-b border-white/10 sticky top-0 z-[100] w-full">
+    <div class="flex items-center gap-3">
+        <span class="bg-[#eab308] text-black font-extrabold uppercase px-2.5 py-0.5 rounded text-[10px] tracking-wider">
+            DEMO MODE
+        </span>
+        <span class="text-white/80 font-medium hidden sm:inline">
+            Modèle: <strong class="text-white">Nordic Living / Showroom #01</strong>
+        </span>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <!-- Lien Retour -->
+        <a href="{% url 'store:category_mobilier' %}" class="text-white/70 hover:text-white transition-colors flex items-center gap-1 font-medium">
+            <span>←</span> Retour
+        </a>
+
+        <!-- Bouton Commander ce site -->
+        <a href="{% url 'store:category_mobilier' %}#packs-pricing" class="bg-[#eab308] hover:bg-yellow-500 text-black font-bold px-4 py-1.5 rounded-md transition-all shadow-sm flex items-center gap-1.5 text-xs">
+            <span>🛒</span> Commander ce site
+        </a>
+    </div>
+</div>
+
+<!-- 2. NAVBAR DYAL LA DÉMO -->
+<nav class="bg-white/90 backdrop-blur-md border-b border-stone-200 sticky top-[41px] z-40">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="font-serif text-2xl font-bold tracking-tight text-stone-900">
+            MAISON ÉLÉGANTE<span class="text-[#eab308]">.</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-600">
+            <a href="#accueil" class="hover:text-stone-900 transition-colors">Accueil</a>
+            <a href="#collections" class="hover:text-stone-900 transition-colors">Collections</a>
+            <a href="#sur-mesure" class="hover:text-stone-900 transition-colors">Sur-Mesure</a>
+            <a href="#a-propos" class="hover:text-stone-900 transition-colors">Notre Showroom</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/212600000000" target="_blank" class="bg-stone-900 hover:bg-[#eab308] hover:text-black text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all shadow-md flex items-center gap-2">
+                <span>💬</span> Contact WhatsApp
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- 3. HERO SECTION -->
+<section id="accueil" class="relative bg-stone-900 text-white py-28 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop');"></div>
+    <div class="relative max-w-7xl mx-auto text-center flex flex-col items-center">
+        <span class="bg-[#eab308]/20 text-[#eab308] border border-[#eab308]/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            🛋️ Showroom & Création Sur-Mesure
+        </span>
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold max-w-4xl leading-tight">
+            Sublimez Votre Intérieur Avec Nos Collections Exclusives.
+        </h1>
+        <p class="mt-6 text-stone-300 max-w-2xl text-base sm:text-lg leading-relaxed">
+            Mobilier scandinave, salons modernes et pièces uniques façonnées pour apporter élégance et confort à votre espace.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="#collections" class="bg-[#eab308] hover:bg-yellow-500 text-black font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg">
+                Découvrir le Catalogue
+            </a>
+            <a href="https://wa.me/212600000000?text=Bonjour,%20je%20souhaite%20commander%20un%20devis." target="_blank" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-3.5 rounded-full text-sm backdrop-blur-md transition-all border border-white/20">
+                Demander un Devis
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 4. SECTION COLLECTIONS -->
+<section id="collections" class="py-20 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold text-[#eab308] uppercase tracking-widest block mb-2">CATALOGUE</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Nos Collections Vedettes</h2>
+            <p class="text-stone-500 text-sm mt-3">Explorez notre sélection de mobilier design pour chaque pièce de votre maison.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Item 1: Salons -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/60 group">
+                <div class="h-64 bg-stone-200 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" alt="Salons" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-stone-900 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Nouveau</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Salons & Canapés</h3>
+                    <p class="text-stone-500 text-xs mt-2 leading-relaxed">Canapés d'angle, fauteuils en velours et tables basses épurées avec finitions haut de gamme.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-100">
+                        <span class="text-xs font-bold text-stone-400">À partir de <strong class="text-stone-900 text-sm">3 400 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20suis%20intéressé%20par%20la%20collection%20Salons" target="_blank" class="text-xs font-bold text-[#eab308] hover:underline">Commander ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Salles à Manger -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/60 group">
+                <div class="h-64 bg-stone-200 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800&auto=format&fit=crop" alt="Salle à manger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Salles à Manger</h3>
+                    <p class="text-stone-500 text-xs mt-2 leading-relaxed">Tables en bois massif, chaises scandinaves et buffets contemporains pour vos repas de famille.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-100">
+                        <span class="text-xs font-bold text-stone-400">À partir de <strong class="text-stone-900 text-sm">4 200 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20suis%20intéressé%20par%20la%20collection%20Salles%20à%20manger" target="_blank" class="text-xs font-bold text-[#eab308] hover:underline">Commander ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Chambres à Coucher -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/60 group">
+                <div class="h-64 bg-stone-200 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" alt="Chambres à Coucher" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Chambres à Coucher</h3>
+                    <p class="text-stone-500 text-xs mt-2 leading-relaxed">Lits capitonnés, tables de chevet et dressing sur-mesure conçus pour votre tranquillité.</p>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-stone-100">
+                        <span class="text-xs font-bold text-stone-400">À partir de <strong class="text-stone-900 text-sm">5 500 DH</strong></span>
+                        <a href="https://wa.me/212600000000?text=Je%20suis%20intéressé%20par%20la%20collection%20Chambres" target="_blank" class="text-xs font-bold text-[#eab308] hover:underline">Commander ➔</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. SECTION SUR-MESURE -->
+<section id="sur-mesure" class="py-20 bg-stone-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="max-w-xl">
+            <span class="text-xs font-bold text-[#eab308] uppercase tracking-widest block mb-2">SERVICE EXCLUSIF</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">Vous avez un projet sur-mesure ?</h2>
+            <p class="text-stone-400 text-sm mt-4 leading-relaxed">
+                Nos artisans et designers conçoivent vos meubles selon vos dimensions, vos matériaux préférés (bois massif, marbre, métal) et votre budget.
+            </p>
+            <div class="mt-8 flex items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">✏️</span>
+                    <div>
+                        <h4 class="font-bold text-sm">Design 3D</h4>
+                        <p class="text-xs text-stone-400">Visualisation avant fabrication</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">🚚</span>
+                    <div>
+                        <h4 class="font-bold text-sm">Livraison & Montage</h4>
+                        <p class="text-xs text-stone-400">Partout au Maroc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-8 rounded-3xl max-w-md w-full backdrop-blur-md">
+            <h3 class="font-serif text-xl font-bold mb-4">Demander une étude gratuite</h3>
+            <form class="space-y-4 text-xs" onsubmit="event.preventDefault(); alert('Merci ! Nous vous contacterons sur WhatsApp.');">
+                <div>
+                    <label class="block text-stone-300 mb-1">Votre Nom :</label>
+                    <input type="text" placeholder="Ex: Karim Benani" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-[#eab308]">
+                </div>
+                <div>
+                    <label class="block text-stone-300 mb-1">Téléphone / WhatsApp :</label>
+                    <input type="tel" placeholder="06 00 00 00 00" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-[#eab308]">
+                </div>
+                <div>
+                    <label class="block text-stone-300 mb-1">Description du projet :</label>
+                    <textarea rows="3" placeholder="Ex: Table à manger 8 personnes en bois de chêne..." class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-[#eab308]"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-[#eab308] hover:bg-yellow-500 text-black font-bold py-3.5 rounded-xl transition-all shadow-lg">
+                    Envoyer ma demande
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- 6. FOOTER DYAL LA DÉMO -->
+<footer class="bg-stone-950 text-white py-12 border-t border-white/10 text-xs text-stone-400">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+        <p class="font-serif text-lg font-bold text-white">MAISON ÉLÉGANTE<span class="text-[#eab308]">.</span></p>
+        <p>© 2026 Maison Élégante - Showroom de Mobilier & Décoration. Démo conçue par <strong>ZAYRO</strong>.</p>
+    </div>
+</footer>
+
+{% endblock %}

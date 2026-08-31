@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- HERO SECTION (ACCUEIL) -->
+<section id="accueil" class="scroll-mt-24 min-h-[calc(100vh-80px)] flex items-center justify-center py-12 border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        <div>
+            <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs font-semibold rounded-full uppercase tracking-widest mb-4">
+                Marketplace d'élite
+            </span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-black leading-tight">
+                Votre activité mérite un site <span class="text-brand-gold italic">remarquable.</span>
+            </h1>
+            <p class="mt-6 text-lg text-black/70 max-w-xl font-light leading-relaxed">
+                Découvrez des sites web professionnels, prêts à l'emploi et conçus sur-mesure pour votre secteur d'activité.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <a href="#categories" class="bg-brand-black text-white text-center font-medium px-8 py-4 rounded-full hover:bg-brand-gold transition-all duration-300 shadow-md">
+                    Explorer les catégories
+                </a>
+                <a href="#how-it-works" class="border border-brand-black/20 text-center font-medium px-8 py-4 rounded-full hover:border-brand-gold hover:text-brand-gold transition-all duration-300">
+                    Voir comment ça marche
+                </a>
+            </div>
+        </div>
+
+        <div class="relative flex justify-center items-center">
+            <div class="w-full max-w-md h-[380px] bg-white rounded-2xl shadow-2xl border border-black/5 p-4 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                <div class="flex items-center space-x-2 mb-3">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="bg-brand-offwhite h-[310px] rounded-lg border border-dashed border-black/10 flex flex-col items-center justify-center p-6 text-center">
+                    <span class="text-5xl mb-3">🏠</span>
+                    <h3 class="font-serif font-bold text-xl">ZAYRO Marketplace</h3>
+                    <p class="text-xs text-black/50 mt-1">Des sites web prêts à l'emploi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORIES SECTION -->
+<section id="categories" class="scroll-mt-24 min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 bg-white border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold">Choisissez votre activité</h2>
+            <p class="text-black/60 mt-3">Sélectionnez une catégorie pour découvrir tous les modèles disponibles.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1. Immobilier -->
+            <a href="{% url 'store:category_immobilier' %}" class="group relative bg-brand-offwhite p-8 rounded-2xl border border-brand-gold/30 hover:border-brand-gold hover:shadow-xl transition-all duration-300 block">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">🏠</span>
+                    <span class="text-xs font-semibold px-3 py-1 bg-brand-gold/10 text-brand-gold rounded-full">3 Modèles</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold group-hover:text-brand-gold transition-colors">Immobilier</h3>
+                <p class="text-sm text-black/60 mt-2">Sites web professionnels pour agences immobilières et courtiers.</p>
+                <div class="mt-6 font-medium text-sm text-brand-gold flex items-center">
+                    Voir les modèles <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </a>
+
+            <!-- 2. Mobilier & Design -->
+            <a href="{% url 'store:category_mobilier' %}" class="group relative bg-brand-offwhite p-8 rounded-2xl border border-brand-gold/30 hover:border-brand-gold hover:shadow-xl transition-all duration-300 block">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">🪑</span>
+                    <span class="text-xs font-semibold px-3 py-1 bg-brand-gold/10 text-brand-gold rounded-full">3 Modèles</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold group-hover:text-brand-gold transition-colors">Mobilier & Design</h3>
+                <p class="text-sm text-black/60 mt-2">Sites web élégants pour showrooms, magasins de meuble et menuisiers.</p>
+                <div class="mt-6 font-medium text-sm text-brand-gold flex items-center">
+                    Voir les modèles <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </a>
+
+            <!-- 3. Automobile -->
+            <div class="bg-brand-offwhite/50 p-8 rounded-2xl border border-black/5 opacity-70">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">🚗</span>
+                    <span class="text-xs bg-black/10 text-black/60 px-3 py-1 rounded-full">Prochainement</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold">Automobile</h3>
+                <p class="text-sm text-black/60 mt-2">Sites pour concessionnaires et vendeurs automobiles.</p>
+            </div>
+
+            <!-- 4. Restaurant -->
+            <div class="bg-brand-offwhite/50 p-8 rounded-2xl border border-black/5 opacity-70">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">🍽️</span>
+                    <span class="text-xs bg-black/10 text-black/60 px-3 py-1 rounded-full">Prochainement</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold">Restaurant</h3>
+                <p class="text-sm text-black/60 mt-2">Sites pour restaurants, cafés et traiteurs.</p>
+            </div>
+
+            <!-- 5. Éducation -->
+            <div class="bg-brand-offwhite/50 p-8 rounded-2xl border border-black/5 opacity-70">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">🏫</span>
+                    <span class="text-xs bg-black/10 text-black/60 px-3 py-1 rounded-full">Prochainement</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold">Éducation</h3>
+                <p class="text-sm text-black/60 mt-2">Sites pour écoles, centres et formateurs.</p>
+            </div>
+
+            <!-- 6. Beauté -->
+            <div class="bg-brand-offwhite/50 p-8 rounded-2xl border border-black/5 opacity-70">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-4xl">💇</span>
+                    <span class="text-xs bg-black/10 text-black/60 px-3 py-1 rounded-full">Prochainement</span>
+                </div>
+                <h3 class="font-serif text-xl font-bold">Beauté</h3>
+                <p class="text-sm text-black/60 mt-2">Sites pour salons, spas et instituts.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS SECTION -->
+<section id="how-it-works" class="scroll-mt-24 min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 bg-brand-offwhite">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold">Comment ça marche ?</h2>
+            <p class="text-black/60 mt-3">Créez votre présence en ligne en 4 étapes simples.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-6 border-l-2 border-brand-gold bg-white rounded-r-xl shadow-sm">
+                <span class="text-2xl font-bold font-serif text-brand-gold">01</span>
+                <h3 class="font-bold text-lg mt-2">Choisissez l'activité</h3>
+                <p class="text-sm text-black/60 mt-1">Sélectionnez la catégorie qui correspond à votre entreprise.</p>
+            </div>
+            <div class="p-6 border-l-2 border-brand-gold bg-white rounded-r-xl shadow-sm">
+                <span class="text-2xl font-bold font-serif text-brand-gold">02</span>
+                <h3 class="font-bold text-lg mt-2">Choisissez le modèle</h3>
+                <p class="text-sm text-black/60 mt-1">Explorez nos designs et choisissez celui qui vous plaît.</p>
+            </div>
+            <div class="p-6 border-l-2 border-brand-gold bg-white rounded-r-xl shadow-sm">
+                <span class="text-2xl font-bold font-serif text-brand-gold">03</span>
+                <h3 class="font-bold text-lg mt-2">Consultez la démo</h3>
+                <p class="text-sm text-black/60 mt-1">Testez le site en direct avant de prendre votre décision.</p>
+            </div>
+            <div class="p-6 border-l-2 border-brand-gold bg-white rounded-r-xl shadow-sm">
+                <span class="text-2xl font-bold font-serif text-brand-gold">04</span>
+                <h3 class="font-bold text-lg mt-2">Lancez votre site</h3>
+                <p class="text-sm text-black/60 mt-1">Nous l'adaptons pour vous et votre site est en ligne.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

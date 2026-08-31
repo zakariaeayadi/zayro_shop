@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Paramètres du compte | ZAYRO{% endblock %}
+
+{% block content %}
+<div class="min-h-[calc(100vh-80px)] bg-brand-offwhite py-12 flex justify-center items-center">
+    <div class="bg-white w-full max-w-xl p-8 rounded-2xl shadow-lg border border-black/5">
+        <h1 class="font-serif text-3xl font-bold text-brand-black mb-2">Paramètres du compte</h1>
+        <p class="text-sm text-black/60 mb-8">Gérez vos informations personnelles et votre sécurité.</p>
+
+        <!-- Form Modifications -->
+        <form method="POST" action="" class="space-y-6">
+            {% csrf_token %}
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-black/70 mb-2">Nom complet</label>
+                <input type="text" name="full_name" value="{{ user.get_full_name|default:user.username }}" required class="w-full px-4 py-3 border border-black/15 rounded-xl text-sm focus:outline-none focus:border-brand-gold bg-brand-offwhite/30">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-black/70 mb-2">Adresse Email</label>
+                <input type="email" name="email" value="{{ user.email }}" required class="w-full px-4 py-3 border border-black/15 rounded-xl text-sm focus:outline-none focus:border-brand-gold bg-brand-offwhite/30">
+            </div>
+
+            <hr class="border-black/5 my-6">
+
+            <h2 class="font-bold text-lg text-brand-black mb-4">Sécurité</h2>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-black/70 mb-2">Changer le mot de passe</label>
+                <input type="password" name="new_password" placeholder="Nouveau mot de passe" class="w-full px-4 py-3 border border-black/15 rounded-xl text-sm focus:outline-none focus:border-brand-gold bg-brand-offwhite/30 mb-3">
+            </div>
+
+            <div class="pt-4 flex items-center justify-between">
+                <a href="{% url 'store:home' %}" class="text-sm font-medium text-black/60 hover:text-black">Annuler</a>
+                <button type="submit" class="bg-brand-black text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-brand-gold transition-colors shadow-sm">
+                    Enregistrer les modifications
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

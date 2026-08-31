@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ property.title }} — RESIDENCE+</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0B0F17] text-slate-100 font-sans antialiased selection:bg-[#C59B27] selection:text-black flex flex-col min-h-screen justify-between">
+
+    <div>
+        <!-- NAVBAR -->
+        <nav class="border-b border-slate-800 bg-[#0F172A]/90 backdrop-blur sticky top-0 z-50 py-4 px-6 sm:px-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <a href="{% url 'store:demo_residence_plus' %}" class="text-[#C59B27] hover:text-amber-400 font-bold text-xs sm:text-sm flex items-center gap-2 transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Retour aux programmes</span>
+                </a>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-[#C59B27] text-black font-bold font-serif text-lg flex items-center justify-center rounded-lg">
+                        R
+                    </div>
+                    <span class="text-white font-serif font-bold text-lg hidden sm:inline">RESIDENCE<span class="text-[#C59B27]">+</span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTAINER -->
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+            
+            <!-- HEADER INFO -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                <div>
+                    <span class="bg-[#C59B27]/10 text-[#C59B27] text-xs font-semibold px-3 py-1 rounded-full border border-[#C59B27]/30 uppercase tracking-wider">
+                        {{ property.get_badge_status_display }}
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl font-bold text-white font-serif mt-3">{{ property.title }}</h1>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 flex items-center gap-1">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#C59B27]"></i> 
+                        {{ property.district }}, {{ property.city }}
+                    </p>
+                </div>
+                <div class="text-left md:text-right bg-[#1E293B]/60 p-3 sm:p-0 rounded-xl border sm:border-0 border-slate-800 w-full sm:w-auto">
+                    <span class="text-[11px] text-slate-400 uppercase tracking-wider block">Prix à partir de</span>
+                    <span class="text-xl sm:text-3xl font-bold text-[#C59B27]">{{ property.price_display }}</span>
+                </div>
+            </div>
+
+            <!-- 📸 SECTION GALERIE D'IMAGES -->
+            <div class="mb-8 space-y-4">
+                
+                <!-- 1. الصورة الرئيسية -->
+                <div class="w-full h-[350px] sm:h-[480px] bg-[#0F172A] rounded-3xl border border-slate-800 overflow-hidden flex items-center justify-center relative shadow-2xl p-4">
+                    {% if property.image %}
+                        <img id="main-image" 
+                             src="{{ property.image.url }}" 
+                             alt="{{ property.title }}" 
+                             class="max-w-full max-h-full object-contain rounded-xl transition-all duration-300">
+                    {% else %}
+                        <div class="flex flex-col items-center justify-center text-slate-600">
+                            <i data-lucide="building-2" class="w-16 h-16 mb-2"></i>
+                            <span class="text-xs">Aucune image disponible</span>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- 2. المعرض المصغر (Thumbnails Carousel) -->
+                <div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-[#C59B27]">
+                    
+                    {% if property.image %}
+                    <button type="button" onclick="changeMainImage('{{ property.image.url }}', this)" 
+                            class="gallery-thumb flex-shrink-0 w-24 h-20 rounded-2xl border-2 border-[#C59B27] bg-[#0F172A] overflow-hidden transition-all p-1">
+                        <img src="{{ property.image.url }}" class="w-full h-full object-cover rounded-xl">
+                    </button>
+                    {% endif %}
+
+                    <!-- هنا تصليح الربط مع معرض الصور (gallery_images) -->
+                    {% if property.gallery_images.all %}
+                        {% for img in property.gallery_images.all %}
+                        <button type="button" onclick="changeMainImage('{{ img.image.url }}', this)" 
+                                class="gallery-thumb flex-shrink-0 w-24 h-20 rounded-2xl border-2 border-slate-800 hover:border-[#C59B27] bg-[#0F172A] overflow-hidden transition-all opacity-70 hover:opacity-100 p-1">
+                            <img src="{{ img.image.url }}" class="w-full h-full object-cover rounded-xl">
+                        </button>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <!-- DETAILS & CHARACTERISTICS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- الوصف التفصيلي (2 أعمدة) -->
+                <div class="md:col-span-2 bg-[#1E293B]/80 p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-4 shadow-xl">
+                    <h2 class="text-lg font-bold text-white border-b border-slate-700/80 pb-3 flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5 text-[#C59B27]"></i>
+                        <span>Description du projet</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed whitespace-pre-line">
+                        {{ property.description }}
+                    </p>
+                </div>
+
+                <!-- الكارت الجانبية (1 عمود) + زر الواتساب + زر الـ PDF -->
+                <div class="bg-[#1E293B]/80 p-6 rounded-3xl border border-slate-800 space-y-6 shadow-xl h-fit">
+                    <h3 class="text-base font-bold text-white border-b border-slate-700/80 pb-3 flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-[#C59B27]"></i>
+                        <span>Caractéristiques</span>
+                    </h3>
+                    
+                    <ul class="space-y-4 text-xs">
+                        <li class="flex justify-between items-center">
+                            <span class="text-slate-400">Type de bien:</span>
+                            <span class="font-semibold text-white bg-slate-800 px-3 py-1 rounded-lg border border-slate-700">{{ property.property_type }}</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="text-slate-400">Chambres:</span>
+                            <span class="font-semibold text-white">🛏️ {{ property.rooms }}</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="text-slate-400">Surface:</span>
+                            <span class="font-semibold text-white">📐 {{ property.surface }}</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="text-slate-400">Atout majeur:</span>
+                            <span class="font-semibold text-[#C59B27]">✨ {{ property.feature_tag }}</span>
+                        </li>
+                    </ul>
+
+                    <!-- 📄 زر تحميل الـ PDF Brochure المضاف -->
+                    {% if property.pdf_brochure %}
+                    <a href="{{ property.pdf_brochure.url }}" 
+                       target="_blank" 
+                       class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-[#C59B27] font-bold py-3 px-4 rounded-2xl transition-all flex items-center justify-center gap-2 text-xs">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Télécharger la Brochure (PDF)</span>
+                    </a>
+                    {% endif %}
+
+                    <!-- 💬 زر الواتساب المباشر -->
+                    <a href="https://wa.me/212600000000?text=Bonjour,%20je%20suis%20intéressé(e)%20par%20le%20projet%20:%20{{ property.title|urlencode }}" 
+                       target="_blank" 
+                       class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-2xl transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 text-xs">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Prendre RDV via WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-[#0F172A] py-6 text-center text-xs text-slate-500 mt-12">
+        <p>&copy; <span id="year"></span> RESIDENCE+. Tous droits réservés.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function changeMainImage(src, element) {
+            const mainImg = document.getElementById('main-image');
+            mainImg.src = src;
+
+            document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+                thumb.classList.remove('border-[#C59B27]');
+                thumb.classList.add('border-slate-800', 'opacity-70');
+            });
+            
+            element.classList.add('border-[#C59B27]');
+            element.classList.remove('border-slate-800', 'opacity-70');
+        }
+    </script>
+</body>
+</html>
