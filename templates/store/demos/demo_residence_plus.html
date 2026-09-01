@@ -3,7 +3,7 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{{ page_title|default:"RESIDENCE+ — Immobilier de Prestige" }}</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,11 +27,10 @@
     </script>
     <style>
         .custom-scroll::-webkit-scrollbar {
-            width: 5px;
+            width: 4px;
         }
         .custom-scroll::-webkit-scrollbar-track {
             background: #0F172A;
-            border-radius: 10px;
         }
         .custom-scroll::-webkit-scrollbar-thumb {
             background: #C59B27;
@@ -44,45 +43,46 @@
 </head>
 <body class="bg-[#0B0F17] text-slate-100 antialiased font-sans selection:bg-[#C59B27] selection:text-black flex flex-col min-h-screen">
 
-    <!-- TOP BANNER -->
-    <div class="bg-[#C59B27] text-black px-4 py-2 text-xs font-semibold flex items-center justify-between sticky top-0 z-50 border-b border-amber-600/30">
-        <div class="flex items-center gap-2">
-            <span class="bg-black text-white text-[9px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">Démo en direct</span>
-            <span class="font-bold text-slate-900 hidden sm:inline">Modèle #03 — Site Vitrine High-End "Residence Plus"</span>
+    <!-- TOP BANNER (OPTIMIZED FOR MOBILE) -->
+    <div class="bg-[#C59B27] text-black px-3 py-1.5 text-xs font-semibold flex items-center justify-between sticky top-0 z-50 border-b border-amber-600/30">
+        <div class="flex items-center gap-1.5">
+            <span class="bg-black text-white text-[8px] sm:text-[9px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider">Démo</span>
+            <span class="font-bold text-slate-900 text-[11px] sm:text-xs truncate max-w-[120px] sm:max-w-none">RESIDENCE+</span>
         </div>
-        <div class="flex items-center gap-2">
-            <button type="button" onclick="checkAdminAuth()" class="bg-black/80 hover:bg-black text-white font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all text-[11px] shadow-sm border border-black/30">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#C59B27]"></i>
-                <span>Espace Admin</span>
+        <div class="flex items-center gap-1.5">
+            <button type="button" onclick="checkAdminAuth()" class="bg-black/80 hover:bg-black text-white font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg flex items-center gap-1 transition-all text-[10px] sm:text-[11px]">
+                <i data-lucide="shield-check" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C59B27]"></i>
+                <span class="hidden sm:inline">Espace </span>Admin
             </button>
 
-            <a href="{% url 'store:category_immobilier' %}#packs-pricing" class="bg-black hover:bg-slate-900 text-white font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all text-[11px] shadow-sm">
-                <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-                <span>Commander ce modèle</span>
+            <a href="{% url 'store:category_immobilier' %}#packs-pricing" class="bg-black hover:bg-slate-900 text-white font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg flex items-center gap-1 transition-all text-[10px] sm:text-[11px]">
+                <i data-lucide="shopping-cart" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                <span class="hidden sm:inline">Commander</span>
             </a>
 
-            <a href="{% url 'store:category_immobilier' %}" class="bg-black/10 hover:bg-black/20 text-black border border-black/20 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all text-[11px]">
+            <a href="{% url 'store:category_immobilier' %}" class="bg-black/10 hover:bg-black/20 text-black font-bold p-1 sm:px-3 sm:py-1.5 rounded-lg flex items-center transition-all text-[10px] sm:text-[11px]">
                 <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-                <span>Retour aux Catégories</span>
+                <span class="hidden sm:inline ml-1">Retour</span>
             </a>
         </div>
     </div>
 
-    <!-- MAIN NAVBAR -->
-    <nav class="bg-[#0F172A]/90 backdrop-blur border-b border-slate-800 sticky top-[37px] z-40">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-[#C59B27] text-black font-bold font-serif text-xl flex items-center justify-center rounded-xl shadow-lg shadow-amber-500/20">
+    <!-- MAIN NAVBAR (WITH MOBILE MENU TOGGLE) -->
+    <nav class="bg-[#0F172A]/95 backdrop-blur border-b border-slate-800 sticky top-[29px] sm:top-[33px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#C59B27] text-black font-bold font-serif text-lg sm:text-xl flex items-center justify-center rounded-xl shadow-lg shadow-amber-500/20">
                     R
                 </div>
                 <div>
-                    <a href="{% url 'store:demo_residence_plus' %}" class="font-serif text-xl font-bold tracking-tight text-white block leading-none">
+                    <a href="{% url 'store:demo_residence_plus' %}" class="font-serif text-lg sm:text-xl font-bold tracking-tight text-white block leading-none">
                         RESIDENCE<span class="text-[#C59B27]">+</span>
                     </a>
-                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold">Immobilier de Prestige</span>
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-slate-400 font-semibold block mt-0.5">Immobilier de Prestige</span>
                 </div>
             </div>
 
+            <!-- Desktop Nav Links -->
             <div class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase text-slate-300">
                 <a href="#programmes" class="hover:text-[#C59B27] transition-colors">Programmes Neufs</a>
                 <a href="https://wa.me/212600000000?text=Bonjour,%20je%20souhaite%20des%20informations." target="_blank" class="hover:text-[#C59B27] transition-colors flex items-center gap-1">
@@ -91,88 +91,106 @@
                 </a>
             </div>
 
-            <div>
-                <a href="https://wa.me/212600000000?text=Bonjour,%20je%20souhaite%20prendre%20un%20rendez-vous." target="_blank" class="bg-[#C59B27] hover:bg-[#b0881e] text-black font-extrabold text-xs px-5 py-2.5 rounded-full transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2 transform hover:scale-105">
-                    <i data-lucide="message-square" class="w-4 h-4"></i>
-                    <span>Prendre RDV / Contact</span>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/212600000000?text=Bonjour,%20je%20souhaite%20prendre%20un%20rendez-vous." target="_blank" class="bg-[#C59B27] hover:bg-[#b0881e] text-black font-extrabold text-[11px] sm:text-xs px-3 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all shadow-lg shadow-amber-500/20 flex items-center gap-1.5">
+                    <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                    <span>RDV / Contact</span>
                 </a>
+
+                <!-- Mobile Menu Button -->
+                <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-1.5 rounded-lg border border-slate-700 bg-[#151D2A]">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0F172A] border-b border-slate-800 px-4 py-3 space-y-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
+            <a href="#programmes" onclick="toggleMobileMenu()" class="block py-2 hover:text-[#C59B27]">Programmes Neufs</a>
+            <a href="https://wa.me/212600000000?text=Bonjour,%20je%20souhaite%20des%20informations." target="_blank" class="block py-2 hover:text-[#C59B27] flex items-center gap-1">
+                <span>Services Promoteurs</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-[#C59B27]"></i>
+            </a>
         </div>
     </nav>
 
     <!-- MAIN CONTENT -->
     <main class="flex-grow">
-        <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
-            <div class="max-w-3xl space-y-4">
-                <span class="text-xs font-extrabold text-[#C59B27] uppercase tracking-widest block">SOLUTION PROMOTEURS & AGENCES DE PRESTIGE</span>
-                <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6 sm:pb-8">
+            <div class="max-w-3xl space-y-3 sm:space-y-4">
+                <span class="text-[10px] sm:text-xs font-extrabold text-[#C59B27] uppercase tracking-widest block">SOLUTION PROMOTEURS & AGENCES DE PRESTIGE</span>
+                <h1 class="font-serif text-3xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
                     Valorisez vos programmes neufs. Capturez des leads qualifiés.
                 </h1>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
+                <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-2xl">
                     Une vitrine architecturale conçue pour présenter vos projets immobiliers et centraliser la gestion de votre stock.
                 </p>
             </div>
 
-            <!-- SEARCH / FILTER FORM -->
-            <form id="search-form" method="GET" action="{% url 'store:demo_residence_plus' %}" class="bg-[#151D2A]/95 backdrop-blur border border-slate-700/80 p-6 sm:p-8 rounded-3xl mt-10 shadow-2xl relative">
+            <!-- SEARCH / FILTER FORM (RESPONSIVE GRID) -->
+            <form id="search-form" method="GET" action="{% url 'store:demo_residence_plus' %}" class="bg-[#151D2A]/95 backdrop-blur border border-slate-700/80 p-4 sm:p-8 rounded-2xl sm:rounded-3xl mt-6 sm:mt-10 shadow-2xl relative">
                 <input type="hidden" name="category" id="selected-category" value="all">
                 <input type="hidden" name="localisation" id="input-localisation" value="all">
                 <input type="hidden" name="type_bien" id="input-type_bien" value="all">
                 <input type="hidden" name="budget_max" id="input-budget_max" value="all">
 
-                <div class="flex items-center gap-8 border-b border-slate-700/60 pb-4 mb-6 text-xs font-bold uppercase tracking-wider overflow-x-auto">
-                    <button type="button" onclick="filterCategory('all', this)" class="tab-btn pb-4 -mb-4 transition-all text-[#C59B27] border-b-2 border-[#C59B27]">
+                <div class="flex items-center gap-6 border-b border-slate-700/60 pb-3 mb-5 text-[11px] sm:text-xs font-bold uppercase tracking-wider overflow-x-auto">
+                    <button type="button" onclick="filterCategory('all', this)" class="tab-btn pb-3 -mb-3 transition-all text-[#C59B27] border-b-2 border-[#C59B27] whitespace-nowrap">
                         Acheter Neuf
                     </button>
-                    <button type="button" onclick="filterCategory('en_cours', this)" class="tab-btn pb-4 -mb-4 transition-all text-slate-400 hover:text-white">
+                    <button type="button" onclick="filterCategory('en_cours', this)" class="tab-btn pb-3 -mb-3 transition-all text-slate-400 hover:text-white whitespace-nowrap">
                         Programmes en Cours
                     </button>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end relative z-30">
-                    <div class="space-y-2 relative custom-select" id="dropdown-loc">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-end relative z-30">
+                    <!-- Localisation -->
+                    <div class="space-y-1.5 relative custom-select" id="dropdown-loc">
                         <label class="block text-[10px] font-extrabold text-[#C59B27] uppercase tracking-widest flex items-center gap-1.5">
                             <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Localisation
                         </label>
-                        <button type="button" onclick="toggleDropdown('dropdown-loc')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-2xl px-4 py-3.5 flex items-center justify-between transition-all shadow-md">
-                            <span id="label-localisation">Toutes les villes</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27]"></i>
+                        <button type="button" onclick="toggleDropdown('dropdown-loc')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-xl sm:rounded-2xl px-3.5 py-3 flex items-center justify-between transition-all shadow-md">
+                            <span id="label-localisation" class="truncate">Toutes les villes</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27] shrink-0"></i>
                         </button>
-                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 bg-[#0F172A] border border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-50 p-1.5 space-y-1">
-                            <div onclick="selectOption('input-localisation', 'label-localisation', 'all', 'Toutes les villes', 'dropdown-loc')" class="px-4 py-2.5 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Toutes les villes</div>
-                            <div onclick="selectOption('input-localisation', 'label-localisation', 'Casablanca', 'Casablanca', 'dropdown-loc')" class="px-4 py-2.5 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Casablanca</div>
-                            <div onclick="selectOption('input-localisation', 'label-localisation', 'Rabat', 'Rabat', 'dropdown-loc')" class="px-4 py-2.5 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Rabat</div>
+                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1 bg-[#0F172A] border border-slate-700 rounded-xl shadow-2xl overflow-hidden z-50 p-1 space-y-0.5">
+                            <div onclick="selectOption('input-localisation', 'label-localisation', 'all', 'Toutes les villes', 'dropdown-loc')" class="px-3 py-2 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-lg cursor-pointer">Toutes les villes</div>
+                            <div onclick="selectOption('input-localisation', 'label-localisation', 'Casablanca', 'Casablanca', 'dropdown-loc')" class="px-3 py-2 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Casablanca</div>
+                            <div onclick="selectOption('input-localisation', 'label-localisation', 'Rabat', 'Rabat', 'dropdown-loc')" class="px-3 py-2 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Rabat</div>
                         </div>
                     </div>
 
-                    <div class="space-y-2 relative custom-select" id="dropdown-type">
+                    <!-- Type -->
+                    <div class="space-y-1.5 relative custom-select" id="dropdown-type">
                         <label class="block text-[10px] font-extrabold text-[#C59B27] uppercase tracking-widest flex items-center gap-1.5">
                             <i data-lucide="home" class="w-3.5 h-3.5"></i> Type de Bien
                         </label>
-                        <button type="button" onclick="toggleDropdown('dropdown-type')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-2xl px-4 py-3.5 flex items-center justify-between transition-all shadow-md">
-                            <span id="label-type_bien">Tous les types</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27]"></i>
+                        <button type="button" onclick="toggleDropdown('dropdown-type')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-xl sm:rounded-2xl px-3.5 py-3 flex items-center justify-between transition-all shadow-md">
+                            <span id="label-type_bien" class="truncate">Tous les types</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27] shrink-0"></i>
                         </button>
-                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 bg-[#0F172A] border border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-50 p-1.5 space-y-1">
-                            <div onclick="selectOption('input-type_bien', 'label-type_bien', 'all', 'Tous les types', 'dropdown-type')" class="px-4 py-2.5 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Tous les types</div>
+                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1 bg-[#0F172A] border border-slate-700 rounded-xl shadow-2xl overflow-hidden z-50 p-1 space-y-0.5">
+                            <div onclick="selectOption('input-type_bien', 'label-type_bien', 'all', 'Tous les types', 'dropdown-type')" class="px-3 py-2 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-lg cursor-pointer">Tous les types</div>
                         </div>
                     </div>
 
-                    <div class="space-y-2 relative custom-select" id="dropdown-budget">
+                    <!-- Budget -->
+                    <div class="space-y-1.5 relative custom-select" id="dropdown-budget">
                         <label class="block text-[10px] font-extrabold text-[#C59B27] uppercase tracking-widest flex items-center gap-1.5">
                             <i data-lucide="wallet" class="w-3.5 h-3.5"></i> Budget Max
                         </label>
-                        <button type="button" onclick="toggleDropdown('dropdown-budget')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-2xl px-4 py-3.5 flex items-center justify-between transition-all shadow-md">
-                            <span id="label-budget_max">Illimité</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27]"></i>
+                        <button type="button" onclick="toggleDropdown('dropdown-budget')" class="w-full bg-[#0F172A] border border-slate-700 hover:border-[#C59B27]/80 text-white text-xs font-medium rounded-xl sm:rounded-2xl px-3.5 py-3 flex items-center justify-between transition-all shadow-md">
+                            <span id="label-budget_max" class="truncate">Illimité</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-[#C59B27] shrink-0"></i>
                         </button>
-                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 bg-[#0F172A] border border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-50 p-1.5 space-y-1">
-                            <div onclick="selectOption('input-budget_max', 'label-budget_max', 'all', 'Illimité', 'dropdown-budget')" class="px-4 py-2.5 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-xl cursor-pointer">Illimité</div>
+                        <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1 bg-[#0F172A] border border-slate-700 rounded-xl shadow-2xl overflow-hidden z-50 p-1 space-y-0.5">
+                            <div onclick="selectOption('input-budget_max', 'label-budget_max', 'all', 'Illimité', 'dropdown-budget')" class="px-3 py-2 text-xs text-slate-300 hover:bg-[#C59B27] hover:text-black font-semibold rounded-lg cursor-pointer">Illimité</div>
                         </div>
                     </div>
 
+                    <!-- Submit -->
                     <div>
-                        <button type="submit" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs py-3.5 rounded-2xl transition-all shadow-lg shadow-amber-500/10 flex items-center justify-center gap-2">
+                        <button type="submit" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs py-3.5 rounded-xl sm:rounded-2xl transition-all shadow-lg shadow-amber-500/10 flex items-center justify-center gap-2">
                             <i data-lucide="search" class="w-4 h-4"></i>
                             <span>Rechercher</span>
                         </button>
@@ -181,30 +199,30 @@
             </form>
         </section>
 
-        <!-- PROGRAMMES NEUFS (GRID DYNAMIQUE) -->
-        <section id="programmes" class="max-w-7xl mx-auto px-6 py-10">
-            <div class="flex items-center justify-between mb-8">
+        <!-- PROGRAMMES NEUFS -->
+        <section id="programmes" class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+            <div class="flex items-center justify-between mb-6 sm:mb-8">
                 <div>
-                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">Nos Programmes Neufs & Mobilier</h2>
-                    <p class="text-slate-400 text-xs mt-1">Ajoutez vos biens via l'Espace Admin pour les afficher ici.</p>
+                    <h2 class="font-serif text-xl sm:text-3xl font-bold text-white">Nos Programmes Neufs & Mobilier</h2>
+                    <p class="text-slate-400 text-[11px] sm:text-xs mt-1">Ajoutez vos biens via l'Espace Admin pour les afficher ici.</p>
                 </div>
             </div>
 
-            <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div id="properties-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
                 <!-- Data dynamically inserted -->
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0A0E17] border-t border-slate-800/80 mt-16 text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="space-y-3 md:col-span-1">
+    <footer class="bg-[#0A0E17] border-t border-slate-800/80 mt-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div class="space-y-2 sm:space-y-3 sm:col-span-2 md:col-span-1">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-[#C59B27] text-black font-bold font-serif flex items-center justify-center rounded-lg">
+                    <div class="w-7 h-7 bg-[#C59B27] text-black font-bold font-serif flex items-center justify-center rounded-lg">
                         R
                     </div>
-                    <span class="font-serif text-lg font-bold text-white tracking-tight">RESIDENCE<span class="text-[#C59B27]">+</span></span>
+                    <span class="font-serif text-base sm:text-lg font-bold text-white tracking-tight">RESIDENCE<span class="text-[#C59B27]">+</span></span>
                 </div>
                 <p class="text-slate-400 leading-relaxed text-[11px]">
                     Plateforme haut de gamme dédiée aux promoteurs immobiliers et spécialistes du mobilier de luxe.
@@ -212,8 +230,8 @@
             </div>
 
             <div>
-                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-3">Navigation</h4>
-                <ul class="space-y-2 text-[11px]">
+                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-2.5">Navigation</h4>
+                <ul class="space-y-1.5 text-[11px]">
                     <li><a href="#programmes" class="hover:text-[#C59B27] transition-colors">Nos Programmes</a></li>
                     <li><a href="#" class="hover:text-[#C59B27] transition-colors">Services Promoteurs</a></li>
                     <li><a href="#" class="hover:text-[#C59B27] transition-colors">Mentions Légales</a></li>
@@ -221,7 +239,7 @@
             </div>
 
             <div>
-                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-3">Contact & Siège</h4>
+                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-2.5">Contact & Siège</h4>
                 <p class="text-[11px] leading-relaxed">
                     Casablanca Finance City<br>
                     Casablanca, Maroc<br>
@@ -230,67 +248,66 @@
             </div>
 
             <div>
-                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-3">Assistance</h4>
-                <p class="text-[11px] mb-3">Une question sur ce modèle vitrine ?</p>
-                <a href="https://wa.me/212600000000" target="_blank" class="inline-flex items-center gap-1.5 text-[#C59B27] font-bold hover:underline">
+                <h4 class="font-bold text-white uppercase text-[11px] tracking-wider mb-2.5">Assistance</h4>
+                <p class="text-[11px] mb-2">Une question sur ce modèle vitrine ?</p>
+                <a href="https://wa.me/212600000000" target="_blank" class="inline-flex items-center gap-1.5 text-[#C59B27] font-bold hover:underline text-[11px]">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Contact via WhatsApp</span>
                 </a>
             </div>
         </div>
 
-        <div class="border-t border-slate-900 py-4 px-6 text-center text-[10px] text-slate-500">
+        <div class="border-t border-slate-900 py-4 px-4 text-center text-[10px] text-slate-500">
             © 2026 RESIDENCE+. Tous droits réservés. Modèle Vitrine Démo.
         </div>
     </footer>
 
-    <!-- MODAL DETAILS -->
-    <div id="modal-details" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md hidden overflow-y-auto p-4 custom-scroll">
-        <div class="bg-[#151D2A] border border-slate-700 w-full max-w-4xl p-6 sm:p-8 rounded-3xl shadow-2xl relative my-auto space-y-6">
-            <button type="button" onclick="closeModal('modal-details')" class="absolute top-4 right-4 text-slate-400 hover:text-white z-20">
-                <i data-lucide="x" class="w-6 h-6"></i>
+    <!-- MODAL DETAILS (FULLSCREEN RESPONSIVE MOBILE) -->
+    <div id="modal-details" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/85 backdrop-blur-md hidden overflow-y-auto p-0 sm:p-4 custom-scroll">
+        <div class="bg-[#151D2A] border border-slate-700/80 w-full max-w-4xl max-h-[92vh] sm:max-h-[90vh] p-4 sm:p-8 rounded-t-3xl sm:rounded-3xl shadow-2xl relative overflow-y-auto custom-scroll space-y-4 sm:space-y-6 my-0 sm:my-auto">
+            <button type="button" onclick="closeModal('modal-details')" class="absolute top-3 right-3 text-slate-400 hover:text-white bg-slate-800/60 p-1.5 rounded-full z-20">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3 pr-8 sm:pr-0">
                 <div>
-                    <span id="detail-badge" class="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/30"></span>
-                    <h2 id="detail-title" class="font-serif text-3xl font-bold text-white mt-2"></h2>
-                    <p id="detail-city" class="text-xs text-[#C59B27] font-semibold uppercase tracking-wider mt-1"></p>
+                    <span id="detail-badge" class="text-[9px] sm:text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/30"></span>
+                    <h2 id="detail-title" class="font-serif text-xl sm:text-3xl font-bold text-white mt-1.5"></h2>
+                    <p id="detail-city" class="text-[11px] sm:text-xs text-[#C59B27] font-semibold uppercase tracking-wider mt-0.5"></p>
                 </div>
-                <div class="text-right">
-                    <span class="text-slate-400 text-xs block">Prix Indicatif</span>
-                    <span id="detail-price" class="text-2xl font-bold text-white"></span>
+                <div class="sm:text-right mt-1 sm:mt-0">
+                    <span class="text-slate-400 text-[10px] sm:text-xs block">Prix Indicatif</span>
+                    <span id="detail-price" class="text-lg sm:text-2xl font-bold text-white"></span>
                 </div>
             </div>
 
-            <div class="w-full min-h-[250px] max-h-[500px] bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-700 flex items-center justify-center p-2">
-                <img id="detail-main-img" src="" class="w-full h-auto max-h-[480px] object-contain rounded-xl">
+            <div class="w-full min-h-[180px] max-h-[300px] sm:max-h-[450px] bg-[#0F172A] rounded-xl sm:rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center p-2">
+                <img id="detail-main-img" src="" class="w-full h-auto max-h-[280px] sm:max-h-[430px] object-contain rounded-lg">
             </div>
 
             <div>
-                <h4 class="text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-3">Galerie Photos Secondaires</h4>
-                <div id="detail-gallery-grid" class="grid grid-cols-3 sm:grid-cols-5 gap-3"></div>
+                <h4 class="text-[11px] sm:text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Galerie Photos</h4>
+                <div id="detail-gallery-grid" class="grid grid-cols-4 sm:grid-cols-5 gap-2"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-800">
-                <div class="md:col-span-2 space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-3 border-t border-slate-800">
+                <div class="md:col-span-2 space-y-3">
                     <div>
-                        <h4 class="text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-1">Description & Spécifications</h4>
+                        <h4 class="text-[11px] sm:text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-1">Description & Spécifications</h4>
                         <p id="detail-desc" class="text-slate-300 text-xs leading-relaxed whitespace-pre-line"></p>
                     </div>
 
-                    <!-- FIX: LINK BROCHURE PDF -->
-                    <div id="detail-pdf-container" class="hidden pt-2">
-                        <a id="detail-pdf-link" href="#" class="inline-flex items-center gap-2 bg-[#C59B27]/10 hover:bg-[#C59B27]/20 border border-[#C59B27]/40 text-[#C59B27] font-bold text-xs px-4 py-2.5 rounded-xl transition-all">
+                    <div id="detail-pdf-container" class="hidden pt-1">
+                        <a id="detail-pdf-link" href="#" class="inline-flex items-center gap-2 bg-[#C59B27]/10 hover:bg-[#C59B27]/20 border border-[#C59B27]/40 text-[#C59B27] font-bold text-xs px-3.5 py-2 rounded-xl transition-all w-full sm:w-auto justify-center">
                             <i data-lucide="download" class="w-4 h-4"></i>
                             <span>Télécharger la Brochure (PDF)</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="space-y-3 bg-[#0F172A] p-4 rounded-2xl border border-slate-800">
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">Caractéristiques</h4>
-                    <div class="space-y-2 text-xs text-slate-300">
+                <div class="space-y-2 bg-[#0F172A] p-3.5 rounded-xl border border-slate-800">
+                    <h4 class="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-1.5">Caractéristiques</h4>
+                    <div class="space-y-1.5 text-xs text-slate-300">
                         <div class="flex justify-between"><span class="text-slate-400">Pièces:</span> <span id="detail-rooms" class="font-bold text-white"></span></div>
                         <div class="flex justify-between"><span class="text-slate-400">Surface:</span> <span id="detail-surface" class="font-bold text-white"></span></div>
                         <div class="flex justify-between"><span class="text-slate-400">Finition:</span> <span id="detail-feature" class="font-bold text-white"></span></div>
@@ -298,8 +315,8 @@
                 </div>
             </div>
 
-            <div class="pt-4 text-right">
-                <button type="button" onclick="closeModal('modal-details')" class="bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs px-6 py-3 rounded-xl transition-all">
+            <div class="pt-2 text-right">
+                <button type="button" onclick="closeModal('modal-details')" class="w-full sm:w-auto bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs px-6 py-3 rounded-xl transition-all">
                     Fermer
                 </button>
             </div>
@@ -307,83 +324,83 @@
     </div>
 
     <!-- MODAL LOGIN -->
-    <div id="modal-login" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-        <div class="bg-[#151D2A] border border-slate-700 w-full max-w-md p-8 rounded-3xl shadow-2xl relative">
-            <button type="button" onclick="closeModal('modal-login')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+    <div id="modal-login" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-[#151D2A] border border-slate-700/80 w-full max-w-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl relative">
+            <button type="button" onclick="closeModal('modal-login')" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-[#C59B27]/20 text-[#C59B27] rounded-2xl flex items-center justify-center mx-auto mb-3 border border-[#C59B27]/30">
-                    <i data-lucide="lock" class="w-6 h-6"></i>
+            <div class="text-center mb-5">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#C59B27]/20 text-[#C59B27] rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-2 border border-[#C59B27]/30">
+                    <i data-lucide="lock" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-white">Connexion Administrateur</h3>
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">Connexion Administrateur</h3>
             </div>
-            <form onsubmit="handleLogin(event)" class="space-y-4">
+            <form onsubmit="handleLogin(event)" class="space-y-3.5">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nom d'utilisateur</label>
-                    <input type="text" id="admin-username" value="admin" placeholder="admin" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                    <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Nom d'utilisateur</label>
+                    <input type="text" id="admin-username" value="admin" placeholder="admin" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Mot de passe</label>
-                    <input type="password" id="admin-password" value="admin" placeholder="••••••••" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                    <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Mot de passe</label>
+                    <input type="password" id="admin-password" value="admin" placeholder="••••••••" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                 </div>
-                <div id="login-error" class="text-red-400 text-xs hidden text-center font-semibold">
+                <div id="login-error" class="text-red-400 text-[11px] hidden text-center font-semibold">
                     Identifiants incorrects (admin / admin)
                 </div>
-                <button type="submit" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs py-3.5 rounded-xl transition-all">
+                <button type="submit" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs py-3 rounded-xl transition-all">
                     Se Connecter
                 </button>
             </form>
 
-            <div class="mt-6 pt-4 border-t border-slate-800 text-center">
-                <div class="bg-[#C59B27]/10 border border-[#C59B27]/25 rounded-2xl p-3 text-[11px] text-[#C59B27] space-y-1">
-                    <p class="font-bold flex items-center justify-center gap-1.5 text-[#C59B27]">
-                        <i data-lucide="info" class="w-3.5 h-3.5"></i> Identifiants d'accès Test (Démo) :
+            <div class="mt-5 pt-3.5 border-t border-slate-800 text-center">
+                <div class="bg-[#C59B27]/10 border border-[#C59B27]/25 rounded-xl p-2.5 text-[10px] sm:text-[11px] text-[#C59B27] space-y-1">
+                    <p class="font-bold flex items-center justify-center gap-1 text-[#C59B27]">
+                        <i data-lucide="info" class="w-3.5 h-3.5"></i> Identifiants Test:
                     </p>
-                    <div class="flex justify-center items-center gap-3 font-mono text-white pt-1">
-                        <span>Username: <strong class="text-[#C59B27] bg-black/50 px-2 py-0.5 rounded">admin</strong></span>
-                        <span>Password: <strong class="text-[#C59B27] bg-black/50 px-2 py-0.5 rounded">admin</strong></span>
+                    <div class="flex justify-center items-center gap-2 font-mono text-white pt-0.5">
+                        <span>User: <strong class="text-[#C59B27] bg-black/50 px-1.5 py-0.5 rounded">admin</strong></span>
+                        <span>Pass: <strong class="text-[#C59B27] bg-black/50 px-1.5 py-0.5 rounded">admin</strong></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL ADMIN PANEL -->
-    <div id="modal-admin-panel" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md hidden overflow-y-auto p-4 custom-scroll">
-        <div class="bg-[#151D2A] border border-slate-700 w-full max-w-4xl p-6 sm:p-8 rounded-3xl shadow-2xl relative my-auto space-y-8">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#C59B27] text-black rounded-xl flex items-center justify-center font-bold">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+    <!-- MODAL ADMIN PANEL (MOBILE COMPATIBLE TABLE) -->
+    <div id="modal-admin-panel" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/85 backdrop-blur-md hidden overflow-y-auto p-0 sm:p-4 custom-scroll">
+        <div class="bg-[#151D2A] border border-slate-700/80 w-full max-w-4xl max-h-[92vh] sm:max-h-[90vh] p-4 sm:p-8 rounded-t-3xl sm:rounded-3xl shadow-2xl relative overflow-y-auto custom-scroll space-y-6 my-0 sm:my-auto">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#C59B27] text-black rounded-xl flex items-center justify-center font-bold">
+                        <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </div>
                     <div>
-                        <h3 class="font-serif text-xl font-bold text-white">Tableau de Bord Administrateur</h3>
-                        <p class="text-slate-400 text-xs">Gérez vos articles, supprimez ou ajoutez des nouveautés</p>
+                        <h3 class="font-serif text-lg sm:text-xl font-bold text-white">Tableau Admin</h3>
+                        <p class="text-slate-400 text-[10px] sm:text-xs">Gérez vos articles en stock</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button type="button" onclick="logoutAdmin()" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1">
-                        <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Déconnexion
+                    <button type="button" onclick="logoutAdmin()" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] sm:text-xs px-2.5 py-1.5 rounded-lg flex items-center gap-1">
+                        <i data-lucide="log-out" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> <span class="hidden sm:inline">Déconnexion</span>
                     </button>
                     <button type="button" onclick="closeModal('modal-admin-panel')" class="text-slate-400 hover:text-white p-1">
-                        <i data-lucide="x" class="w-6 h-6"></i>
+                        <i data-lucide="x" class="w-5 h-5"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- TABLE -->
+            <!-- TABLE WITH SCROLL HORIZONTAL -->
             <div>
-                <h4 class="text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-4">Liste du Stock Disponible</h4>
-                <div class="bg-[#0F172A] border border-slate-800 rounded-2xl overflow-hidden">
-                    <table class="w-full text-left text-xs text-slate-300">
-                        <thead class="bg-slate-900 border-b border-slate-800 text-[11px] font-bold text-slate-400 uppercase">
+                <h4 class="text-[11px] sm:text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-3">Liste du Stock</h4>
+                <div class="bg-[#0F172A] border border-slate-800 rounded-xl overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300 min-w-[500px]">
+                        <thead class="bg-slate-900 border-b border-slate-800 text-[10px] font-bold text-slate-400 uppercase">
                             <tr>
-                                <th class="p-3">Titre</th>
-                                <th class="p-3">Prix</th>
-                                <th class="p-3">Ville</th>
-                                <th class="p-3">Brochure PDF</th>
-                                <th class="p-3 text-right">Action</th>
+                                <th class="p-2.5">Titre</th>
+                                <th class="p-2.5">Prix</th>
+                                <th class="p-2.5">Ville</th>
+                                <th class="p-2.5">Brochure PDF</th>
+                                <th class="p-2.5 text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody id="admin-table-body" class="divide-y divide-slate-800">
@@ -393,94 +410,94 @@
             </div>
 
             <!-- FORM -->
-            <form onsubmit="handleCreateItem(event)" class="space-y-5 border-t border-slate-800 pt-6">
-                <h4 class="text-xs font-bold text-[#C59B27] uppercase tracking-wider">Ajouter un nouveau Bien / Meuble</h4>
+            <form onsubmit="handleCreateItem(event)" class="space-y-4 border-t border-slate-800 pt-5">
+                <h4 class="text-[11px] sm:text-xs font-bold text-[#C59B27] uppercase tracking-wider">Ajouter un nouveau Bien / Meuble</h4>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Nom du Meuble / Bien</label>
-                        <input type="text" id="item-title" placeholder="Ex: Villa Deluxe Oasis" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-[#C59B27] uppercase tracking-wider mb-1">Nom du Meuble / Bien</label>
+                        <input type="text" id="item-title" placeholder="Ex: Villa Deluxe Oasis" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Prix (DH / MDH)</label>
-                        <input type="text" id="item-price" placeholder="Ex: 4 500 000 DH" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-[#C59B27] uppercase tracking-wider mb-1">Prix (DH / MDH)</label>
+                        <input type="text" id="item-price" placeholder="Ex: 4 500 000 DH" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">Ville / Emplacement</label>
-                        <input type="text" id="item-city" placeholder="Ex: Rabat" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-slate-300 mb-1">Ville / Emplacement</label>
+                        <input type="text" id="item-city" placeholder="Ex: Rabat" required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">Statut / Tag</label>
-                        <select id="item-badge" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-slate-300 mb-1">Statut / Tag</label>
+                        <select id="item-badge" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                             <option value="LIVRABLE">LIVRABLE IMMÉDIAT</option>
                             <option value="EN_COURS">SUR COMMANDE / PLAN</option>
                             <option value="OFF_MARKET">OFF-MARKET</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">Finition / Type</label>
-                        <input type="text" id="item-feature" placeholder="Ex: Haute Finition" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-slate-300 mb-1">Finition / Type</label>
+                        <input type="text" id="item-feature" placeholder="Ex: Haute Finition" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">Chambres / Pièces</label>
-                        <input type="text" id="item-rooms" placeholder="Ex: 4 Ch." class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-slate-300 mb-1">Chambres / Pièces</label>
+                        <input type="text" id="item-rooms" placeholder="Ex: 4 Ch." class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">Surface / Dimensions</label>
-                        <input type="text" id="item-surface" placeholder="Ex: 350 m²" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27]">
+                        <label class="block text-[11px] font-bold text-slate-300 mb-1">Surface / Dimensions</label>
+                        <input type="text" id="item-surface" placeholder="Ex: 350 m²" class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27]">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-2">Description Complète</label>
-                    <textarea id="item-desc" rows="3" placeholder="Description technique, vue sur mer, piscine..." required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#C59B27] custom-scroll"></textarea>
+                    <label class="block text-[11px] font-bold text-slate-300 mb-1">Description Complète</label>
+                    <textarea id="item-desc" rows="3" placeholder="Description technique, vue sur mer, piscine..." required class="w-full bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#C59B27] custom-scroll"></textarea>
                 </div>
 
                 <!-- PDF UPLOAD -->
                 <div>
-                    <label class="block text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Brochure PDF (Optionnel)</label>
-                    <div class="bg-[#0F172A] border border-slate-700 rounded-2xl p-4 flex items-center justify-between">
-                        <input type="file" id="file-pdf" accept="application/pdf" class="text-xs text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#C59B27] file:text-black hover:file:bg-[#d4a832] cursor-pointer" onchange="handlePdfSelect(event)">
-                        <span id="pdf-file-name" class="text-xs text-slate-400 italic">Aucun PDF sélectionné</span>
+                    <label class="block text-[11px] font-bold text-[#C59B27] uppercase tracking-wider mb-1.5">Brochure PDF (Optionnel)</label>
+                    <div class="bg-[#0F172A] border border-slate-700 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                        <input type="file" id="file-pdf" accept="application/pdf" class="text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-[#C59B27] file:text-black hover:file:bg-[#d4a832] cursor-pointer w-full sm:w-auto" onchange="handlePdfSelect(event)">
+                        <span id="pdf-file-name" class="text-[11px] text-slate-400 italic">Aucun PDF sélectionné</span>
                     </div>
                 </div>
 
-                <!-- PHOTO PRINCIPALE (CLIC + DRAG) -->
+                <!-- MAIN PHOTO -->
                 <div>
-                    <label class="block text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Photo Principale</label>
-                    <div id="dropzone-main" class="border-2 border-dashed border-slate-700 hover:border-[#C59B27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#0F172A]">
+                    <label class="block text-[11px] font-bold text-[#C59B27] uppercase tracking-wider mb-1.5">Photo Principale</label>
+                    <div id="dropzone-main" class="border-2 border-dashed border-slate-700 hover:border-[#C59B27] rounded-xl p-3 text-center cursor-pointer transition-colors bg-[#0F172A]">
                         <input type="file" id="file-main" accept="image/*" class="hidden" onchange="previewMainPhoto(event)">
-                        <div id="main-preview-container" class="hidden flex items-center justify-center gap-3">
-                            <img id="main-preview-img" src="" class="h-24 max-w-full object-contain rounded-xl border border-[#C59B27] pointer-events-none">
+                        <div id="main-preview-container" class="hidden flex items-center justify-center">
+                            <img id="main-preview-img" src="" class="h-20 max-w-full object-contain rounded-lg border border-[#C59B27] pointer-events-none">
                         </div>
                         <div id="main-upload-prompt" class="space-y-1">
-                            <i data-lucide="image" class="w-8 h-8 text-[#C59B27] mx-auto pointer-events-none"></i>
+                            <i data-lucide="image" class="w-6 h-6 text-[#C59B27] mx-auto pointer-events-none"></i>
                             <p class="text-xs text-slate-300 font-semibold pointer-events-none">Cliquer ou glisser l'image principale ici</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- PHOTOS SECONDAIRES (CLIC + DRAG) -->
+                <!-- SECONDARY PHOTOS -->
                 <div>
-                    <label class="block text-xs font-bold text-[#C59B27] uppercase tracking-wider mb-2">Photos Secondaires</label>
-                    <div id="dropzone-secondary" class="border-2 border-dashed border-slate-700 hover:border-[#C59B27] rounded-2xl p-4 text-center cursor-pointer transition-colors bg-[#0F172A]">
+                    <label class="block text-[11px] font-bold text-[#C59B27] uppercase tracking-wider mb-1.5">Photos Secondaires</label>
+                    <div id="dropzone-secondary" class="border-2 border-dashed border-slate-700 hover:border-[#C59B27] rounded-xl p-3 text-center cursor-pointer transition-colors bg-[#0F172A]">
                         <input type="file" id="file-secondary" accept="image/*" multiple class="hidden" onchange="previewSecondaryPhotos(event)">
                         <div id="secondary-upload-prompt" class="space-y-1">
-                            <i data-lucide="images" class="w-8 h-8 text-[#C59B27] mx-auto pointer-events-none"></i>
-                            <p class="text-xs text-slate-300 font-semibold pointer-events-none">Cliquer ou glisser plusieurs images secondaires ici</p>
+                            <i data-lucide="images" class="w-6 h-6 text-[#C59B27] mx-auto pointer-events-none"></i>
+                            <p class="text-xs text-slate-300 font-semibold pointer-events-none">Cliquer ou glisser plusieurs images secondaires</p>
                         </div>
-                        <div id="secondary-preview-grid" class="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-3 hidden"></div>
+                        <div id="secondary-preview-grid" class="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-2 hidden"></div>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
-                    <button type="submit" class="bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs px-6 py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2">
+                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-800">
+                    <button type="submit" class="w-full sm:w-auto bg-[#C59B27] hover:bg-[#d4a832] text-black font-extrabold text-xs px-6 py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
                         <i data-lucide="plus" class="w-4 h-4"></i>
                         <span>Enregistrer</span>
                     </button>
@@ -491,22 +508,18 @@
 
     <!-- JAVASCRIPT SYSTEM ENGINE -->
     <script>
-        // GLOBAL VARIABLES
         let mainPhotoBase64 = '';
         let secondaryPhotosBase64 = [];
         let pdfFileBase64 = null;
         let createdProperties = [];
 
-        // PREVENT DRAG AND DROP DEFAULT BROWSER BEHAVIOR
         window.addEventListener("dragover", function(e) { e.preventDefault(); }, false);
         window.addEventListener("drop", function(e) { e.preventDefault(); }, false);
 
-        // INITIALIZATION ON PAGE LOAD
         document.addEventListener("DOMContentLoaded", function() {
             setupDropZone('dropzone-main', 'file-main', handleMainFileSelect);
             setupDropZone('dropzone-secondary', 'file-secondary', handleSecondaryFilesSelect);
 
-            // LOAD STORED PROPERTIES FROM LOCALSTORAGE
             const stored = localStorage.getItem('zayro_properties');
             if (stored) {
                 try {
@@ -522,7 +535,11 @@
             lucide.createIcons();
         });
 
-        // DROPZONE + CLICK TRIGGER FUNCTION
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
         function setupDropZone(dropzoneId, inputId, handleFilesFn) {
             const zone = document.getElementById(dropzoneId);
             const input = document.getElementById(inputId);
@@ -558,7 +575,6 @@
             });
         }
 
-        // DROPDOWNS AND MODALS CONTROLLERS
         function toggleDropdown(id) {
             const currentDropdown = document.getElementById(id);
             const menu = currentDropdown.querySelector('.dropdown-menu');
@@ -572,10 +588,16 @@
             document.getElementById(dropdownId).querySelector('.dropdown-menu').classList.add('hidden');
         }
 
-        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        function openModal(id) { 
+            document.getElementById(id).classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+        
+        function closeModal(id) { 
+            document.getElementById(id).classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
 
-        // ADMIN AUTHENTICATION
         function checkAdminAuth() {
             if (sessionStorage.getItem('admin_logged_in') === 'true') {
                 renderAdminDashboardTable();
@@ -602,7 +624,6 @@
             closeModal('modal-admin-panel');
         }
 
-        // MEDIA & FILE HANDLERS
         function handlePdfSelect(e) {
             const file = e.target.files[0];
             if (file && file.type === 'application/pdf') {
@@ -659,12 +680,12 @@
                         const index = secondaryPhotosBase64.length - 1;
 
                         const wrapper = document.createElement('div');
-                        wrapper.className = "relative group h-16 w-full flex items-center justify-center bg-black/40 rounded-lg overflow-hidden border border-slate-700";
+                        wrapper.className = "relative group h-14 w-full flex items-center justify-center bg-black/40 rounded-lg overflow-hidden border border-slate-700";
                         wrapper.id = `sec-img-wrapper-${index}`;
 
                         wrapper.innerHTML = `
                             <img src="${base64Src}" class="h-full w-full object-contain pointer-events-none">
-                            <button type="button" onclick="removeSecondaryPhoto(event, ${index})" class="absolute top-1 right-1 bg-red-600 hover:bg-red-700 text-white rounded-full p-0.5 opacity-90 transition-opacity z-10">
+                            <button type="button" onclick="removeSecondaryPhoto(event, ${index})" class="absolute top-1 right-1 bg-red-600 text-white rounded-full p-0.5 opacity-90 z-10">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                             </button>
                         `;
@@ -682,7 +703,6 @@
             if (el) el.remove();
         }
 
-        // CREATE NEW ITEM & PERSIST TO LOCALSTORAGE
         function handleCreateItem(e) {
             e.preventDefault();
             
@@ -704,14 +724,11 @@
             };
 
             createdProperties.push(item);
-            
-            // SAVE TO LOCALSTORAGE
             localStorage.setItem('zayro_properties', JSON.stringify(createdProperties));
 
             renderPropertyCard(item);
             renderAdminDashboardTable();
 
-            // RESET FORM AND STATE
             e.target.reset();
             mainPhotoBase64 = '';
             secondaryPhotosBase64 = [];
@@ -724,30 +741,29 @@
             closeModal('modal-admin-panel');
         }
 
-        // RENDER FUNCTIONS
         function renderPropertyCard(item) {
             const cardHtml = `
-            <div id="property-card-${item.id}" class="bg-[#151D2A] rounded-3xl border border-slate-800 overflow-hidden shadow-xl flex flex-col justify-between group hover:border-[#C59B27]/50 transition-all duration-300 relative">
+            <div id="property-card-${item.id}" class="bg-[#151D2A] rounded-2xl sm:rounded-3xl border border-slate-800 overflow-hidden shadow-xl flex flex-col justify-between group hover:border-[#C59B27]/50 transition-all duration-300 relative">
                 <div onclick="openPropertyDetails('${item.id}')" class="cursor-pointer block">
-                    <div class="w-full h-64 bg-[#0F172A] relative overflow-hidden flex items-center justify-center border-b border-slate-800 p-2">
-                        <span class="absolute top-4 left-4 z-20 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full backdrop-blur shadow-md bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
+                    <div class="w-full h-52 sm:h-64 bg-[#0F172A] relative overflow-hidden flex items-center justify-center border-b border-slate-800 p-2">
+                        <span class="absolute top-3 left-3 z-20 text-[9px] sm:text-[10px] font-extrabold uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full backdrop-blur shadow-md bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
                             ${item.badge}
                         </span>
                         <img src="${item.mainImg}" alt="${item.title}" class="w-full h-full object-contain transition-transform duration-300 pointer-events-none">
                     </div>
 
-                    <div class="p-6 space-y-3">
+                    <div class="p-4 sm:p-6 space-y-2.5 sm:space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-semibold text-[#C59B27] uppercase tracking-wide">${item.city}</span>
-                            <span class="text-xs font-bold text-white bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700/60">${item.price}</span>
+                            <span class="text-[11px] sm:text-xs font-semibold text-[#C59B27] uppercase tracking-wide">${item.city}</span>
+                            <span class="text-[11px] sm:text-xs font-bold text-white bg-slate-800/80 px-2 py-0.5 rounded-lg border border-slate-700/60">${item.price}</span>
                         </div>
-                        <h3 class="font-serif text-2xl font-bold text-white group-hover:text-[#C59B27] transition-colors">${item.title}</h3>
+                        <h3 class="font-serif text-lg sm:text-2xl font-bold text-white group-hover:text-[#C59B27] transition-colors leading-snug">${item.title}</h3>
                         <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">${item.desc}</p>
                     </div>
                 </div>
 
-                <div class="p-6 pt-0">
-                    <button type="button" onclick="openPropertyDetails('${item.id}')" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-bold text-xs py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/10">
+                <div class="p-4 sm:p-6 pt-0">
+                    <button type="button" onclick="openPropertyDetails('${item.id}')" class="w-full bg-[#C59B27] hover:bg-[#d4a832] text-black font-bold text-xs py-3 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/10">
                         <span>Voir les détails</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
@@ -766,13 +782,13 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-800/50 transition-colors";
                 tr.innerHTML = `
-                    <td class="p-3 font-semibold text-white">${item.title}</td>
-                    <td class="p-3 text-[#C59B27] font-bold">${item.price}</td>
-                    <td class="p-3">${item.city}</td>
-                    <td class="p-3">${item.pdf ? '<span class="text-emerald-400 text-[10px] font-bold border border-emerald-500/30 bg-emerald-950/60 px-2 py-0.5 rounded">PDF Inclus</span>' : '<span class="text-slate-500 text-[10px]">Aucun</span>'}</td>
-                    <td class="p-3 text-right">
-                        <button type="button" onclick="deleteProperty('${item.id}')" class="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-3 py-1.5 rounded-lg transition-colors font-bold text-xs inline-flex items-center gap-1">
-                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Supprimer
+                    <td class="p-2.5 font-semibold text-white whitespace-nowrap">${item.title}</td>
+                    <td class="p-2.5 text-[#C59B27] font-bold whitespace-nowrap">${item.price}</td>
+                    <td class="p-2.5 whitespace-nowrap">${item.city}</td>
+                    <td class="p-2.5 whitespace-nowrap">${item.pdf ? '<span class="text-emerald-400 text-[9px] font-bold border border-emerald-500/30 bg-emerald-950/60 px-1.5 py-0.5 rounded">PDF</span>' : '<span class="text-slate-500 text-[10px]">Aucun</span>'}</td>
+                    <td class="p-2.5 text-right whitespace-nowrap">
+                        <button type="button" onclick="deleteProperty('${item.id}')" class="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-2 py-1 rounded-lg transition-colors font-bold text-[11px] inline-flex items-center gap-1">
+                            <i data-lucide="trash-2" class="w-3 h-3"></i> Supprimer
                         </button>
                     </td>
                 `;
@@ -781,12 +797,9 @@
             lucide.createIcons();
         }
 
-        // DELETE PROPERTY
         function deleteProperty(id) {
             if (confirm("Voulez-vous vraiment supprimer cet article ?")) {
                 createdProperties = createdProperties.filter(item => item.id !== id);
-                
-                // UPDATE LOCALSTORAGE
                 localStorage.setItem('zayro_properties', JSON.stringify(createdProperties));
 
                 const card = document.getElementById(`property-card-${id}`);
@@ -795,7 +808,6 @@
             }
         }
 
-        // SHOW DETAILS MODAL & PDF HANDLER
         function openPropertyDetails(id) {
             const item = createdProperties.find(p => p.id === id);
             if (!item) return;
@@ -810,7 +822,6 @@
             document.getElementById('detail-surface').textContent = item.surface;
             document.getElementById('detail-feature').textContent = item.feature;
 
-            // FIX PDF BLOB URL & DOWNLOAD NAME
             const pdfContainer = document.getElementById('detail-pdf-container');
             const pdfLink = document.getElementById('detail-pdf-link');
             
@@ -834,7 +845,7 @@
             if (item.secondaryImgs && item.secondaryImgs.length > 0) {
                 item.secondaryImgs.forEach(imgSrc => {
                     const box = document.createElement('div');
-                    box.className = "h-20 w-full bg-[#0F172A] rounded-xl border border-slate-700 overflow-hidden flex items-center justify-center p-1 cursor-pointer hover:border-[#C59B27] transition-all";
+                    box.className = "h-16 sm:h-20 w-full bg-[#0F172A] rounded-xl border border-slate-700 overflow-hidden flex items-center justify-center p-1 cursor-pointer hover:border-[#C59B27] transition-all";
                     box.onclick = () => { 
                         document.getElementById('detail-main-img').src = imgSrc; 
                     };
