@@ -12,21 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Top Demo Navigation Bar -->
-    <div class="bg-amber-400 text-black px-4 py-2.5 text-xs sm:text-sm font-semibold flex flex-wrap items-center justify-between shadow-md border-b border-amber-500/30 sticky top-0 z-50">
+    <!-- Top Demo Navigation Bar (Modern Dark Theme) -->
+    <div class="bg-slate-900 text-white px-4 py-3 text-xs sm:text-sm font-medium flex flex-wrap items-center justify-between border-b border-slate-800 sticky top-0 z-50 shadow-lg">
         <div class="flex items-center gap-2">
-            <span class="bg-black text-white px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">DÉMO EN DIRECT</span>
-            <span>Modèle #01 — Site Vitrine High-End "Aqar Estate"</span>
+            <span class="bg-indigo-600 text-white px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider">DÉMO EN DIRECT</span>
+            <span class="text-gray-300 font-semibold hidden sm:inline">Modèle #01 — Site Vitrine "Aqar Estate"</span>
         </div>
         <div class="flex items-center gap-3 mt-1 sm:mt-0">
-            <a href="/#packs" class="bg-black hover:bg-gray-800 text-white font-bold px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1.5 shadow">
+            <a href="/category/immobilier/#packs" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-1.5 rounded-lg transition text-xs flex items-center gap-2 shadow-sm">
                 <i class="fa-solid fa-cart-shopping"></i> Commander ce modèle
             </a>
-            <a href="/" class="bg-amber-100 hover:bg-amber-200 text-black border border-amber-500/40 font-bold px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1.5">
+            <a href="/category/immobilier/" class="bg-slate-800 hover:bg-slate-700 text-gray-200 border border-slate-700 font-bold px-3.5 py-1.5 rounded-lg transition text-xs flex items-center gap-2">
                 <i class="fa-solid fa-arrow-left"></i> Retour au Catalogue
             </a>
         </div>
@@ -48,7 +53,7 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/212600000000" target="_blank" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-4 py-2 rounded-xl transition border border-emerald-200">
+                <a href="https://wa.me/212600000000" target="_blank" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-xl transition border border-emerald-200">
                     <i class="fa-brands fa-whatsapp text-emerald-600 text-lg"></i>
                     WhatsApp
                 </a>
@@ -60,9 +65,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section class="relative bg-slate-950 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent z-0"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto text-center space-y-6">
             <span class="bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs uppercase font-bold tracking-widest px-4 py-1.5 rounded-full inline-block">
@@ -75,36 +80,43 @@
                 Achat, vente et location d'appartements, villas et terrains d'exception en toute simplicité.
             </p>
 
-            <!-- Search Bar -->
-            <div class="bg-white rounded-2xl p-3 shadow-2xl max-w-4xl mx-auto text-gray-800 grid grid-cols-1 sm:grid-cols-4 gap-3 mt-8">
-                <div class="flex flex-col text-left px-3 py-1">
-                    <label class="text-xs font-bold text-gray-400 uppercase">Localisation</label>
-                    <select class="font-semibold text-sm bg-transparent outline-none cursor-pointer mt-1">
+            <!-- Search Bar Modern UI -->
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl max-w-4xl mx-auto text-gray-800 grid grid-cols-1 sm:grid-cols-4 gap-4 mt-8 border border-white/20">
+                
+                <div class="relative text-left flex flex-col justify-center px-3 py-1 rounded-xl bg-gray-50 border border-gray-200/80 hover:border-indigo-400 transition">
+                    <label class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">Localisation</label>
+                    <select class="font-semibold text-sm text-gray-800 bg-transparent outline-none cursor-pointer pr-6 w-full pt-0.5">
                         <option>Toutes les villes</option>
                         <option>Casablanca</option>
                         <option>Rabat</option>
                         <option>Marrakech</option>
                         <option>Tanger</option>
                     </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3 bottom-3 text-xs text-gray-400 pointer-events-none"></i>
                 </div>
-                <div class="flex flex-col text-left px-3 py-1 border-t sm:border-t-0 sm:border-l border-gray-100">
-                    <label class="text-xs font-bold text-gray-400 uppercase">Type de bien</label>
-                    <select class="font-semibold text-sm bg-transparent outline-none cursor-pointer mt-1">
+
+                <div class="relative text-left flex flex-col justify-center px-3 py-1 rounded-xl bg-gray-50 border border-gray-200/80 hover:border-indigo-400 transition">
+                    <label class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">Type de bien</label>
+                    <select class="font-semibold text-sm text-gray-800 bg-transparent outline-none cursor-pointer pr-6 w-full pt-0.5">
                         <option>Tous les types</option>
                         <option>Appartement</option>
                         <option>Villa Moderne</option>
                         <option>Maison</option>
                         <option>Terrain</option>
                     </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3 bottom-3 text-xs text-gray-400 pointer-events-none"></i>
                 </div>
-                <div class="flex flex-col text-left px-3 py-1 border-t sm:border-t-0 sm:border-l border-gray-100">
-                    <label class="text-xs font-bold text-gray-400 uppercase">Statut</label>
-                    <select class="font-semibold text-sm bg-transparent outline-none cursor-pointer mt-1">
+
+                <div class="relative text-left flex flex-col justify-center px-3 py-1 rounded-xl bg-gray-50 border border-gray-200/80 hover:border-indigo-400 transition">
+                    <label class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">Statut</label>
+                    <select class="font-semibold text-sm text-gray-800 bg-transparent outline-none cursor-pointer pr-6 w-full pt-0.5">
                         <option>À Vendre</option>
                         <option>À Louer</option>
                     </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3 bottom-3 text-xs text-gray-400 pointer-events-none"></i>
                 </div>
-                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 px-6 transition flex items-center justify-center gap-2 shadow-md">
+
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl py-3.5 px-6 transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     Rechercher
                 </button>
@@ -212,7 +224,7 @@
         </div>
     </section>
 
-    <!-- Services / Why Choose Us -->
+    <!-- Services Section -->
     <section id="services" class="bg-gray-100 py-20 border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-gray-900">Pourquoi choisir Aqar Estate ?</h2>
