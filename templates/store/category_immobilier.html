@@ -100,7 +100,15 @@
             <div class="model-card model-vitrine bg-[#F5F3EF] rounded-3xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <div class="bg-white/90 backdrop-blur p-8 text-center relative border-b border-slate-100">
-                        <span class="absolute top-4 left-4 bg-[#0F172A] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK STARTER</span>
+                        <!-- Badges Statut & Pack -->
+                        <div class="absolute top-4 left-4 flex items-center gap-1.5">
+                            <span class="bg-[#0F172A] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm">PACK STARTER</span>
+                            <span class="bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 backdrop-blur-md text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                À VENDRE
+                            </span>
+                        </div>
+
                         <div class="w-12 h-12 bg-[#FAF9F6] rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 text-xl group-hover:scale-110 transition-transform duration-300">
                             🏢
                         </div>
@@ -112,16 +120,20 @@
                         <p class="text-slate-600 text-xs leading-relaxed">
                             L'élégance du moderne au service de vos mandats. Une vitrine claire, rapide et pensée pour inspirer confiance et générer des contacts qualifiés.
                         </p>
-                        <div class="pt-2">
+                        <div class="pt-2 flex items-center gap-2">
                             <span class="inline-block bg-slate-200/60 text-slate-700 text-[11px] font-semibold px-3 py-1 rounded-full">Site Vitrine Clean</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 pt-0">
-                    <a href="{% url 'store:demo_modern_estate' %}" target="_blank" class="w-full bg-[#0F172A] hover:bg-amber-700 text-white font-bold text-xs py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-md">
+                <div class="p-6 pt-0 space-y-2">
+                    <a href="{% url 'store:demo_modern_estate' %}" target="_blank" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
                         <span>Voir la démo</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#packs-pricing" class="w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>Commander ce modèle</span>
                     </a>
                 </div>
             </div>
@@ -130,8 +142,16 @@
             <div class="model-card model-vitrine bg-[#0F172A] rounded-3xl border border-amber-600/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative group transform md:-translate-y-2">
                 <div>
                     <div class="bg-[#1E293B] p-8 text-center relative border-b border-slate-700/50">
-                        <span class="absolute top-4 left-4 bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK STARTER</span>
+                        <!-- Badges Statut & Pack -->
+                        <div class="absolute top-4 left-4 flex items-center gap-1.5">
+                            <span class="bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm">PACK STARTER</span>
+                            <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-md text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                                À LOUER
+                            </span>
+                        </div>
                         <span class="absolute top-4 right-4 bg-amber-500/20 text-[#D97706] border border-amber-500/30 text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full">NOUVEAU</span>
+                        
                         <div class="w-12 h-12 bg-[#0F172A] rounded-2xl mx-auto mb-4 flex items-center justify-center border border-slate-700 text-xl group-hover:scale-110 transition-transform duration-300">
                             ✨
                         </div>
@@ -149,10 +169,14 @@
                     </div>
                 </div>
 
-                <div class="p-6 pt-0">
-                    <a href="{% url 'store:demo_minimal_loft' %}" target="_blank" class="w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                <div class="p-6 pt-0 space-y-2">
+                    <a href="{% url 'store:demo_minimal_loft' %}" target="_blank" class="w-full bg-[#1E293B] hover:bg-slate-700 text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-700 shadow-sm">
                         <span>Voir la démo</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#packs-pricing" class="w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>Commander ce modèle</span>
                     </a>
                 </div>
             </div>
@@ -161,7 +185,15 @@
             <div class="model-card model-pro bg-[#F5F3EF] rounded-3xl border border-slate-200/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <div class="bg-white/90 backdrop-blur p-8 text-center relative border-b border-slate-100">
-                        <span class="absolute top-4 left-4 bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">PACK PRO</span>
+                        <!-- Badges Statut & Pack -->
+                        <div class="absolute top-4 left-4 flex items-center gap-1.5">
+                            <span class="bg-[#C59B27] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm">PACK PRO</span>
+                            <span class="bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 backdrop-blur-md text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                À VENDRE
+                            </span>
+                        </div>
+
                         <div class="w-12 h-12 bg-[#FAF9F6] rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-sm border border-slate-100 text-xl group-hover:scale-110 transition-transform duration-300">
                             🏗️
                         </div>
@@ -179,16 +211,23 @@
                     </div>
                 </div>
 
-                <div class="p-6 pt-0 space-y-2.5">
-                    <a href="{% url 'store:demo_residence_plus' %}" target="_blank" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                        <i data-lucide="eye" class="w-4 h-4"></i>
-                        <span>Voir la démo client</span>
-                    </a>
+                <div class="p-6 pt-0 space-y-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="{% url 'store:demo_residence_plus' %}" target="_blank" class="bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                            <span>Démo</span>
+                        </a>
 
-                    <button onclick="openAdminGuideModal()" class="w-full bg-amber-50 hover:bg-amber-100 text-[#C59B27] border border-amber-300/80 font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                        <i data-lucide="file-text" class="w-4 h-4"></i>
-                        <span>Télécharger le Guide Admin (PDF)</span>
-                    </button>
+                        <button onclick="openAdminGuideModal()" class="bg-amber-50 hover:bg-amber-100 text-[#C59B27] border border-amber-300/80 font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                            <span>Guide Admin</span>
+                        </button>
+                    </div>
+
+                    <a href="#packs-pricing" class="w-full bg-[#C59B27] hover:bg-[#b0881e] text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>Commander ce modèle</span>
+                    </a>
                 </div>
             </div>
 
@@ -305,7 +344,6 @@
                 </ul>
             </div>
 
-            <!-- Option 1: Télécharger directement le PDF généré static (Fichier Python) -->
             <a href="{% static 'store/pdf/Guide_Utilisation_Admin_Immobilier.pdf' %}" download target="_blank" class="w-full mt-4 bg-[#0F172A] hover:bg-slate-800 text-white font-bold text-xs py-4 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg">
                 <i data-lucide="download" class="w-4 h-4"></i>
                 <span>Télécharger le Guide Admin (PDF)</span>
