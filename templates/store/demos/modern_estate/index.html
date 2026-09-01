@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAYRO | Immobilier & Modern Estate</title>
+    <title>Aqar Estate | Immobilier & Modern Estate</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -16,11 +16,27 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
+    <!-- Top Demo Navigation Bar -->
+    <div class="bg-amber-400 text-black px-4 py-2.5 text-xs sm:text-sm font-semibold flex flex-wrap items-center justify-between shadow-md border-b border-amber-500/30 sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <span class="bg-black text-white px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">DÉMO EN DIRECT</span>
+            <span>Modèle #01 — Site Vitrine High-End "Aqar Estate"</span>
+        </div>
+        <div class="flex items-center gap-3 mt-1 sm:mt-0">
+            <a href="/#packs" class="bg-black hover:bg-gray-800 text-white font-bold px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1.5 shadow">
+                <i class="fa-solid fa-cart-shopping"></i> Commander ce modèle
+            </a>
+            <a href="/" class="bg-amber-100 hover:bg-amber-200 text-black border border-amber-500/40 font-bold px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1.5">
+                <i class="fa-solid fa-arrow-left"></i> Retour au Catalogue
+            </a>
+        </div>
+    </div>
+
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <header class="bg-white border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2 text-2xl font-black tracking-wider text-indigo-900">
-                <span class="bg-indigo-600 text-white px-3 py-1 rounded-xl shadow-md">ZAYRO</span>
+            <a href="#" class="flex items-center gap-2 text-2xl font-black tracking-wider text-indigo-900">
+                <span class="bg-indigo-600 text-white px-3 py-1 rounded-xl shadow-md">AQAR</span>
                 <span class="text-indigo-600">ESTATE</span>
             </a>
             
@@ -31,10 +47,10 @@
                 <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="tel:+212777587034" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 px-4 py-2.5 rounded-xl transition">
-                    <i class="fa-solid fa-phone text-indigo-600"></i>
-                    +212 777 587 034
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/212600000000" target="_blank" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-4 py-2 rounded-xl transition border border-emerald-200">
+                    <i class="fa-brands fa-whatsapp text-emerald-600 text-lg"></i>
+                    WhatsApp
                 </a>
                 <a href="#properties" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-indigo-200 transition transform hover:-translate-y-0.5">
                     Découvrir
@@ -53,7 +69,7 @@
                 Plateforme Immobilière Premium
             </span>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-                Trouvez le bien de vos rêves avec <span class="text-indigo-400">ZAYRO</span>
+                Trouvez le bien de vos rêves avec <span class="text-indigo-400">Aqar Estate</span>
             </h1>
             <p class="text-lg text-gray-300 max-w-2xl mx-auto font-light">
                 Achat, vente et location d'appartements, villas et terrains d'exception en toute simplicité.
@@ -65,9 +81,9 @@
                     <label class="text-xs font-bold text-gray-400 uppercase">Localisation</label>
                     <select class="font-semibold text-sm bg-transparent outline-none cursor-pointer mt-1">
                         <option>Toutes les villes</option>
-                        <option>Oujda</option>
                         <option>Casablanca</option>
                         <option>Rabat</option>
+                        <option>Marrakech</option>
                         <option>Tanger</option>
                     </select>
                 </div>
@@ -113,62 +129,83 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Property Card 1 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Vendre</span>
-                    <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">2 400 000 DH</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Villa Luxueuse avec Piscine</h3>
-                    <p class="text-gray-500 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-indigo-500"></i> Quartier Andalous, Oujda
-                    </p>
-                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 4 Ch.</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 3 SDB</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 320 m²</span>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Vendre</span>
+                        <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">2 400 000 DH</span>
                     </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Villa Luxueuse avec Piscine</h3>
+                        <p class="text-gray-500 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-indigo-500"></i> Quartier Anfa, Casablanca
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 4 Ch.</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 3 SDB</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 320 m²</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/212600000000?text=Bonjour,%20je%20suis%20intéressé%20par%20la%20Villa%20Luxueuse%20avec%20Piscine" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Commander sur WhatsApp
+                    </a>
                 </div>
             </div>
 
             <!-- Property Card 2 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Appartement" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Louer</span>
-                    <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">4 500 DH <span class="text-xs font-normal">/ mois</span></span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Appartement Moderne Haut Standing</h3>
-                    <p class="text-gray-500 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-indigo-500"></i> Centre Ville, Oujda
-                    </p>
-                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 2 Ch.</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 1 SDB</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 85 m²</span>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Appartement" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Louer</span>
+                        <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">4 500 DH <span class="text-xs font-normal">/ mois</span></span>
                     </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Appartement Moderne Haut Standing</h3>
+                        <p class="text-gray-500 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-indigo-500"></i> Agdal, Rabat
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 2 Ch.</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 1 SDB</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 85 m²</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/212600000000?text=Bonjour,%20je%20suis%20intéressé%20par%20l'Appartement%20Moderne" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Commander sur WhatsApp
+                    </a>
                 </div>
             </div>
 
             <!-- Property Card 3 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Maison" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Vendre</span>
-                    <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">1 850 000 DH</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Maison Contemporaine avec Jardin</h3>
-                    <p class="text-gray-500 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-indigo-500"></i> Route de Taza, Oujda
-                    </p>
-                    <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 3 Ch.</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 2 SDB</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 180 m²</span>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Maison" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">À Vendre</span>
+                        <span class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-lg font-bold px-3 py-1 rounded-lg">1 850 000 DH</span>
                     </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">Maison Contemporaine avec Jardin</h3>
+                        <p class="text-gray-500 text-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-indigo-500"></i> Malabata, Tanger
+                        </p>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-gray-600 text-sm font-medium">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-indigo-400"></i> 3 Ch.</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-indigo-400"></i> 2 SDB</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-indigo-400"></i> 180 m²</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/212600000000?text=Bonjour,%20je%20suis%20intéressé%20par%20la%20Maison%20Contemporaine" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Commander sur WhatsApp
+                    </a>
                 </div>
             </div>
 
@@ -178,7 +215,7 @@
     <!-- Services / Why Choose Us -->
     <section id="services" class="bg-gray-100 py-20 border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900">Pourquoi choisir ZAYRO Estate ?</h2>
+            <h2 class="text-3xl font-extrabold text-gray-900">Pourquoi choisir Aqar Estate ?</h2>
             <p class="text-gray-500 mt-2 max-w-xl mx-auto">Nous vous accompagnons à chaque étape de votre projet immobilier avec transparence et professionnalisme.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -213,26 +250,25 @@
     <footer id="contact" class="bg-slate-900 text-gray-400 py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div class="space-y-4">
-                <a href="#" class="text-2xl font-black text-white tracking-wider">ZAYRO <span class="text-indigo-500">ESTATE</span></a>
+                <a href="#" class="text-2xl font-black text-white tracking-wider">AQAR <span class="text-indigo-500">ESTATE</span></a>
                 <p class="text-sm text-gray-400">Votre partenaire de confiance pour l'immobilier au Maroc.</p>
             </div>
             <div class="space-y-2">
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider">Contact</h4>
-                <p class="text-sm"><i class="fa-solid fa-location-dot text-indigo-500 mr-2"></i> Oujda, Andalous, Maroc</p>
-                <p class="text-sm"><i class="fa-solid fa-phone text-indigo-500 mr-2"></i> +212 777 587 034</p>
-                <p class="text-sm"><i class="fa-solid fa-envelope text-indigo-500 mr-2"></i> zayroshop05@gmail.com</p>
+                <p class="text-sm"><i class="fa-solid fa-phone text-indigo-500 mr-2"></i> +212 600 000 000</p>
+                <p class="text-sm"><i class="fa-solid fa-envelope text-indigo-500 mr-2"></i> aqar@gmail.com</p>
             </div>
             <div class="space-y-2">
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider">Suivez-nous</h4>
-                <div class="flex gap-4 text-xl">
-                    <a href="#" class="hover:text-indigo-400 transition"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="hover:text-indigo-400 transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-indigo-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <div class="flex gap-4 text-2xl">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/212600000000" target="_blank" class="hover:text-emerald-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 pt-6 text-center text-xs text-gray-500">
-            &copy; 2026 ZAYRO Shop. Tous droits réservés.
+            &copy; 2026 Aqar Estate. Tous droits réservés.
         </div>
     </footer>
 
